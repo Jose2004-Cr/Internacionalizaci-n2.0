@@ -4,7 +4,7 @@
 <x-app-layout>
     <x-sider>
     </x-sider>
-    @vite(['resources/css/soporte.css', 'resources/js/soporte.js'])
+    @vite(['resources/css/soporte.css', 'resources/js/soporte.js','resources/css/dashboard.css'])
 
     <body>
         <div class="container">

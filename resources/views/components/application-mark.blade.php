@@ -8,9 +8,9 @@
 
 <canvas id="myCanvas" width="60" height="30"></canvas>
 
-<style>
+{{-- <style>
   @keyframes rotate {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
   }
-</style>
+</style> --}}

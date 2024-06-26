@@ -1,0 +1,257 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body */
+body {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* Container */
+.container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+header p {
+    font-size: 1em;
+    color: #666;
+}
+
+header p strong {
+    font-weight: bold;
+}
+
+/* Profiles */
+.profiles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.profile-card {
+    width: 40%;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #f4f2f9;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.profile-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
+}
+
+.profile-card h2 {
+    margin: 0 0 10px;
+    font-size: 1.25em;
+}
+
+.profile-card p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.profile-card .name {
+    font-weight: bold;
+    font-size: 1.125em;
+}
+
+.profile-card .about {
+    margin-bottom: 10px;
+}
+
+.profile-card .buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.profile-card .buttons button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    transition: background-color 0.3s;
+}
+
+.profile-card .buttons .chat {
+    background-color: #28a745;
+}
+
+.profile-card .buttons .chat:hover {
+    background-color: #218838;
+}
+
+.profile-card .buttons .view-profile {
+    background-color: #007bff;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.profile-card .buttons .view-profile:hover {
+    background-color: #0056b3;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination .page {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.pagination .page:hover {
+    background-color: #007bff;
+    color: #fff;
+    border: 1px solid #007bff;
+}
+
+.pagination .page.active {
+    background-color: #007bff;
+    color: #fff;
+    border: 1px solid #007bff;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 4rem;
+    transition: width 0.3s ease-in-out;
+    background: linear-gradient(135deg, #bd0b29, #860211);
+    border-radius: 0 1rem 1rem 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.sidebar:hover {
+    width: 10rem;
+}
+
+.expand-text {
+    opacity: 0;
+    margin-left: 0.5rem;
+    white-space: nowrap;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.sidebar:hover .expand-text {
+    opacity: 1;
+}
+
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    border-radius: 0.5rem;
+    margin: 0.5rem 0;
+}
+
+.sidebar-item img {
+    width: 2rem;
+    height: 2rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+.sidebar-item:hover {
+    background-color: #0F293E;
+    transform: scale(0.95);
+}
+
+.sidebar-item:hover img {
+    transform: scale(1.1);
+}
+
+.sidebar-item .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+}
+
+.sidebar h5 {
+    text-align: center;
+    color: white;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+/* Slide-in Drawer */
+.slide-in {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 0;
+    overflow: hidden;
+    background: white;
+    transition: width 0.3s ease-in-out;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.slide-in.active {
+    width: 20rem;
+}
+
+/* Card */
+.card {
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Utility */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+li {
+    width: 100%;
+}

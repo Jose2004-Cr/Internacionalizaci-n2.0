@@ -15,7 +15,6 @@
     <body class="antialiased bg-gray-100 sans-serif">
         <div class="h-screen px-4 py-2 mx-auto md:py-96 md:ml-16" id="app">
             <div class="overflow-hidden bg-white rounded-lg shadow">
-
                 <div class="flex items-center justify-between px-6 py-2 bg-blue-800">
                     <div>
                         <span id="month-name" class="text-lg font-bold text-white"></span>
@@ -41,7 +40,6 @@
                         </button>
                     </div>
                 </div>
-
                 <div class="-mx-1 -mb-1 calendar-container">
                     <div class="flex flex-wrap" style="margin-bottom: -40px;">
                         <div style="width: 14.2857%" class="px-2 py-2">
@@ -66,11 +64,11 @@
                             <div class="text-sm font-bold tracking-wide text-center text-gray-600 uppercase">Sáb</div>
                         </div>
                     </div>
-
                     <div id="calendar-grid" class="flex flex-wrap border-t border-l calendar-grid"></div>
                 </div>
             </div>
         </div>
+
 
         <div id="modal" style="background-color: rgba(0, 0, 0, 0.8)"
             class="fixed top-0 bottom-0 left-0 right-0 z-40 hidden w-full h-full">

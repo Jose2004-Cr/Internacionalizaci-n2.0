@@ -5,9 +5,9 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet-fullscreen/dist/leaflet.fullscreen.css" />
 <x-app-layout>
     <x-sider>
-        
+
     </x-sider>
-    @vite(['resources/css/app.css', 'resources/js/app.js','resources/css/mapa.css'])
+    @vite(['resources/css/app.css', 'resources/js/app.js','resources/css/mapa.css', 'resources/css/dashboard.css'])
 
 
 

@@ -1,19 +1,23 @@
 [x-cloak] {
     display: none;
 }
-
-/* Estilos para hacer el calendario más largo */
 .calendar-container {
     height: 800px;
-    /* Ajusta la altura según tus necesidades */
     overflow-y: auto;
+    padding-left: 6rem;
 }
-
 .calendar-grid {
     height: 700px;
-    /* Ajusta la altura según tus necesidades */
     margin-bottom: -1px;
-    /* Agrega un margen inferior negativo */
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.calendar-grid > div {
+    border-bottom: 1px solid #020523;
+    box-sizing: border-box;
+    height: 105px;
 }
 
 .sidebar {
@@ -26,6 +30,9 @@
     flex-direction: column;
     align-items: center;
     padding: 1rem 0;
+    position: fixed;
+    z-index: 1;
+    height: 100vh;
 }
 
 .sidebar:hover {
@@ -45,27 +52,15 @@
 
 .item {
     flex: 1;
-    /* Esto hace que cada elemento tenga el mismo tamaño (proporcionalmente) */
-    /* O puedes ajustar el tamaño de manera más específica */
     width: 200px;
-    /* Ancho fijo */
     height: 500px;
-    /* Alto fijo */
     flex-grow: 1;
-    /* Permite que los elementos crezcan si hay espacio adicional */
 }
 
 .container {
     display: flex;
     width: 100%;
-    /* Ancho completo del contenedor */
     height: 400px;
-    /* Altura fija del contenedor */
-}
-
-.item {
-    flex: 1 1 200px;
-    /* flex-grow flex-shrink flex-basis */
 }
 
 .sidebar-item {
