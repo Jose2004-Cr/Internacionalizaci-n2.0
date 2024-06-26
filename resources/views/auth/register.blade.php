@@ -1,100 +1,21 @@
 <x-guest-layout>
+
     <x-authentication-card>
         <x-slot name="logo">
             <x-authentication-card-logo />
-        </x-slot>
 
+        </x-slot>
         <x-validation-errors class="mb-0" />
 
+        @vite (['resources/css/registro.css'])
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.4/dist/tailwind.min.css" rel="stylesheet" />
-        <style>
-            /* Estilos para el contenedor del formulario */
-            .form-container {
-                max-height: 90vh;
-                overflow-y: auto;
-                scrollbar-width: none;
-                -ms-overflow-style: none;
-            }
 
-            .form-container::-webkit-scrollbar {
-                display: none;
-            }
 
-            .form-header {
-                position: sticky;
-                top: 0;
-                background-color: white;
-                z-index: 10;
-            }
-
-            .custom-select {
-                background-color: #1e3a8a;
-                color: white;
-                border: 1px solid #1e3a8a;
-                appearance: none;
-                -webkit-appearance: none;
-                -moz-appearance: none;
-                background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="white" d="M8.7,8.3c-0.4-0.4-1.1-0.4-1.5,0s-0.4,1.1,0,1.5l4,4c0.4,0.4,1.1,0.4,1.5,0l4-4c0.4-0.4,0.4-1.1,0-1.5s-1.1-0.4-1.5,0L12,11.7L8.7,8.3z"/></svg>');
-                background-repeat: no-repeat;
-                background-position: right 10px center;
-                background-size: 20px;
-                padding-right: 40px;
-            }
-
-            .custom-select:focus {
-                border-color: #1e3a8a;
-                box-shadow: 0 0 5px rgba(30, 144, 255, 0.5);
-                outline: none;
-            }
-
-            .custom-boton {
-                background-color: #1e3a8a;
-            }
-
-            .file-upload-container {
-                display: flex;
-                align-items: center;
-                border: 2px dashed #d1d5db;
-                padding: 10px;
-                border-radius: 8px;
-                width: fit-content;
-            }
-
-            .file-upload-label {
-                background-color: #f3f4f6;
-                border: 1px solid #d1d5db;
-                padding: 10px 20px;
-                border-radius: 4px;
-                cursor: pointer;
-                transition: background-color 0.3s ease;
-            }
-
-            .file-upload-label:hover {
-                background-color: #e5e7eb;
-            }
-
-            .file-upload-input {
-                display: none;
-            }
-
-            .file-upload-description {
-                margin-left: 10px;
-                color: #6b7280;
-            }
-
-            body,
-            select,
-            input,
-            label,
-            button,
-            a {
-                font-family: 'Poppins', sans-serif;
-            }
-        </style>
 <body>
     <div >
+
         <form method="POST" action="{{ route('register') }}">
             @csrf
                 <div class="absolute top-0 right-0 flex items-center mt-4 mr-4">
@@ -113,6 +34,7 @@
                         </div>
 
                     </div>
+
                 </div>
                 <div class="w-full form-container">
                     <div

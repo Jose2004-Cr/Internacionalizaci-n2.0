@@ -1,7 +1,5 @@
     <x-sider>
     </x-sider>
-    {{-- @vite(['resources/css/dashboard.css']) --}}
-
 
 <body class="bg-gray-100">
     <div class="flex justify-center min-h-screen bg-gray-100">
