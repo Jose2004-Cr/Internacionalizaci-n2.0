@@ -1,0 +1,110 @@
+[x-cloak] {
+    display: none;
+}
+
+/* Estilos para hacer el calendario más largo */
+.calendar-container {
+    height: 800px;
+    /* Ajusta la altura según tus necesidades */
+    overflow-y: auto;
+}
+
+.calendar-grid {
+    height: 700px;
+    /* Ajusta la altura según tus necesidades */
+    margin-bottom: -1px;
+    /* Agrega un margen inferior negativo */
+}
+
+.sidebar {
+    width: 4rem;
+    transition: width 0.3s ease-in-out;
+    background: linear-gradient(135deg, #bd0b29, #5e020c);
+    border-radius: 0 1rem 1rem 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.sidebar:hover {
+    width: 10rem;
+}
+
+.expand-text {
+    opacity: 0;
+    margin-left: 0.5rem;
+    white-space: nowrap;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.sidebar:hover .expand-text {
+    opacity: 1;
+}
+
+.item {
+    flex: 1;
+    /* Esto hace que cada elemento tenga el mismo tamaño (proporcionalmente) */
+    /* O puedes ajustar el tamaño de manera más específica */
+    width: 200px;
+    /* Ancho fijo */
+    height: 500px;
+    /* Alto fijo */
+    flex-grow: 1;
+    /* Permite que los elementos crezcan si hay espacio adicional */
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    /* Ancho completo del contenedor */
+    height: 400px;
+    /* Altura fija del contenedor */
+}
+
+.item {
+    flex: 1 1 200px;
+    /* flex-grow flex-shrink flex-basis */
+}
+
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    border-radius: 0.5rem;
+    margin: 0.5rem 0;
+}
+
+.sidebar-item img {
+    width: 2rem;
+    height: 2rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+.sidebar-item:hover {
+    background-color: #0F293E;
+    transform: scale(0.95);
+}
+
+.sidebar-item:hover img {
+    transform: scale(1.1);
+}
+
+.sidebar-item .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+}
+
+.sidebar h5 {
+    text-align: center;
+    color: white;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}

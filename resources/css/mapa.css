@@ -1,0 +1,190 @@
+.sidebar {
+    width: 4rem;
+    transition: width 0.3s ease-in-out;
+    background: linear-gradient(135deg, #bd0b29, #860211);
+    border-radius: 0 1rem 1rem 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.sidebar:hover {
+    width: 10rem;
+}
+
+.expand-text {
+    opacity: 0;
+    margin-left: 0.5rem;
+    white-space: nowrap;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.sidebar:hover .expand-text {
+    opacity: 1;
+}
+
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    border-radius: 0.5rem;
+    margin: 0.5rem 0;
+}
+
+.sidebar-item img {
+    width: 2rem;
+    height: 2rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+.sidebar-item:hover {
+    background-color: #0F293E;
+    transform: scale(0.95);
+}
+
+.sidebar-item:hover img {
+    transform: scale(1.1);
+}
+
+.sidebar-item .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+}
+
+.sidebar h5 {
+    text-align: center;
+    color: white;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.drawer-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+li {
+    width: 100%;
+}
+
+.sidebar-content {
+    margin-left: 4rem;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+.sidebar:hover~.sidebar-content {
+    margin-left: 10rem;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+li {
+    width: 100%;
+}
+
+#location {
+    width: 100%;
+    height: 700px;
+    position: relative;
+}
+
+.leaflet-container {
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.scrollable-table {
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.leaflet-container .leaflet-control-attribution {
+    display: none;
+}
+
+.watermark {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 5px;
+    font-size: 12px;
+    z-index: 1000;
+}
+
+.table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: #07213c;
+}
+
+.table-hover>tbody>tr:hover {
+    background-color: #0f66bd;
+}
+
+.search-bar {
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+.button-primary {
+    background-color: #0c62b3;
+    color: white;
+    padding: 10px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.button-primary:hover {
+    background-color: #0F293E;
+}
+
+.pagination-button {
+    background-color: #0F293E;
+    color: white;
+    padding: 8px 16px;
+    margin: 4px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.pagination-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.details-button {
+    background-color: #129ff0;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.details-button:hover {
+    background-color: #0056b3;
+}

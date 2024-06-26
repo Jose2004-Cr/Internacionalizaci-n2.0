@@ -1,0 +1,7 @@
+// app/helpers.php
+
+<?php
+function images($path = '')
+{
+    return asset("/images/$path");
+}
