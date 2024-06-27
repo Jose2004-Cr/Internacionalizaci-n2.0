@@ -4,7 +4,7 @@
 <x-app-layout>
     <x-sider>
     </x-sider>
-    @vite(['resources/css/soporte.css', 'resources/js/soporte.js','resources/css/dashboard.css'])
+    @vite(['resources/css/soporte.css', 'resources/js/soporte.js', 'resources/css/dashboard.css'])
 
     <body>
         <div class="container">
@@ -72,32 +72,30 @@
                 <button class="page active">1</button>
             </div>
         </div>
-        <script src="scripts.js"></script>
     </body>
-    <link rel="stylesheet" href="styles.css">
+{{--
+    chatbot --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     <body>
         <div id="chatbot">
-            <button id="chatbot-btn">
-                <img src="chatbot-icon.png" alt="Chatbot Icon">
+            <button id="chatbot-btn" class="chatbot-btn">
+                <i class="fas fa-comments"></i>
             </button>
             <div id="chat-window" class="hidden">
                 <div id="chat-header">
                     <span>Soporte Técnico</span>
-                    <button id="close-chat">&times;</button>
+                    <button id="clear-history-btn" class="clear-history-btn">Limpiar</button>
+                    <button id="close-chat" class="close-chat-btn">&times;</button>
                 </div>
                 <div id="chat-content">
                     <div class="message bot-message">Hola! ¿En qué puedo ayudarte hoy?</div>
                 </div>
                 <div id="chat-input">
                     <input type="text" id="user-input" placeholder="Escribe un mensaje...">
-                    <button id="send-btn">Enviar</button>
+                    <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
                 </div>
             </div>
         </div>
-        <script src="script.js"></script>
     </body>
-
-    </body>
-
 </x-app-layout>

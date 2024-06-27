@@ -242,7 +242,14 @@ li {
 
 /* chat bot  */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 #chatbot {
@@ -251,7 +258,7 @@ body {
     right: 20px;
 }
 
-#chatbot-btn {
+.chatbot-btn {
     background-color: #007bff;
     border: none;
     border-radius: 50%;
@@ -260,11 +267,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #fff;
+    font-size: 24px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
 }
 
-#chatbot-btn img {
-    width: 30px;
-    height: 30px;
+.chatbot-btn:hover {
+    background-color: #0056b3;
 }
 
 #chat-window {
@@ -276,13 +286,15 @@ body {
     position: fixed;
     bottom: 80px;
     right: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
+    transition: transform 0.3s, opacity 0.3s;
 }
 
 .hidden {
-    display: none;
+    transform: scale(0);
+    opacity: 0;
 }
 
 #chat-header {
@@ -294,6 +306,14 @@ body {
     align-items: center;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+}
+
+.close-chat-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
 }
 
 #chat-content {
@@ -325,6 +345,9 @@ body {
     color: #fff;
     border-radius: 5px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .message {
@@ -366,6 +389,14 @@ body {
 
 .typing-indicator .dot:nth-child(3) {
     animation-delay: 0.4s;
+}
+.clear-history-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    margin-right: 10px;
 }
 
 @keyframes blink {
