@@ -76,35 +76,35 @@
                         </div>
                         <div class="mt-4">
                             <x-label for="genero" value="{{ __('Género') }}" />
-                            <div class="flex items-center space-x-4">
+                            <div class="flex items-center space-x-0">
                                 <x-input type="checkbox" id="hombre" name="genero" class="hidden"
                                     onclick="hideInput()" />
                                 <x-label for="hombre"
-                                    class="inline-flex items-center gap-2 px-6 py-4 border-r-2 border-blue-700 cursor-pointer md:pr-8"
+                                    class="inline-flex items-center gap-1 px-3 py-4 border-r-2 border-blue-700 cursor-pointer md:pr-8"
                                     onclick="check('hombre')">
                                     <span class="text-gray-700">{{ __('Hombre') }}</span>
-                                    <span id="check-hombre" class="w-5 h-5 border border-blue-700 rounded">
+                                    <span id="check-hombre" class="w-4 h-4 border border-blue-700 rounded">
                                         <i class="hidden text-white fas fa-check"></i>
                                     </span>
                                 </x-label>
                                 <x-input type="checkbox" id="mujer" name="genero" class="hidden"
                                     onclick="hideInput()" />
                                 <x-label for="mujer"
-                                    class="inline-flex items-center gap-2 px-6 py-4 border-r-2 border-blue-700 cursor-pointer md:pr-8"
+                                    class="inline-flex items-center gap-1 px-3 py-4 border-r-2 border-blue-700 cursor-pointer md:pr-8"
                                     onclick="check('mujer')">
                                     <span class="text-gray-700">{{ __('Mujer') }}</span>
-                                    <span id="check-mujer" class="w-5 h-5 border border-blue-700 rounded">
+                                    <span id="check-mujer" class="w-4 h-4 border border-blue-700 rounded">
                                         <i class="hidden text-white fas fa-check"></i>
                                     </span>
                                 </x-label>
                                 <x-input type="checkbox" id="no_identificado" name="genero" class="hidden"
                                     onclick="showInput()" />
                                 <x-label for="no_identificado"
-                                    class="inline-flex items-center gap-2 px-6 py-4 cursor-pointer"
+                                    class="inline-flex items-center gap-1 px-3 py-4 cursor-pointer"
                                     onclick="check('no_identificado')">
                                     <span class="text-gray-700">{{ __('No identificado') }}</span>
                                     <span id="check-no_identificado"
-                                        class="w-5 h-5 border border-blue-700 rounded">
+                                        class="w-4 h-4 border border-blue-700 rounded">
                                         <i class="hidden text-white fas fa-check"></i>
                                     </span>
                                 </x-label>

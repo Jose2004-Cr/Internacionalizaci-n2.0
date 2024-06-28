@@ -1,0 +1,39 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.table-container {
+    margin: 60px auto;
+    padding: 50px;
+    background-color: #fff;
+    border-radius: 40px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.dropdown-item input[type="radio"] {
+    margin-right: 10px;
+}
+
+#dropdownRadioButton {
+    margin-right: 10px;
+}
+
+.dataTables_filter {
+    float: right;
+}
+
+.dataTables_paginate {
+    float: right;
+}
+
+.dataTables_length {
+    float: left;
+}
+
+.dataTables_info {
+    float: left;
+}

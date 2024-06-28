@@ -106,7 +106,7 @@ li {
 
 #location {
     width: 100%;
-    height: 700px;
+    height: 600px;
     position: relative;
 }
 
@@ -139,7 +139,7 @@ li {
 }
 
 .table-hover>tbody>tr:hover {
-    background-color: #0f66bd;
+    background-color: #0e5ca9;
 }
 
 .search-bar {
@@ -148,7 +148,7 @@ li {
 }
 
 .button-primary {
-    background-color: #0c62b3;
+    background-color: #084883;
     color: white;
     padding: 10px 20px;
     margin: 8px 0;
