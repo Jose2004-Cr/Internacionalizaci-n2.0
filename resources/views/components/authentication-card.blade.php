@@ -9,7 +9,7 @@
             {{ $logo }}
         </div>
 
-        <div class="w-full px-0 py-1 mt-0 overflow-hidden bg-white shadow-md sm:max-w-md sm:rounded-lg">
+        <div class="w-full px-0 py-0 mt-0 overflow-hidden bg-white shadow-md sm:max-w-md sm:rounded-lg">
             {{ $slot }}
         </div>
     </div>

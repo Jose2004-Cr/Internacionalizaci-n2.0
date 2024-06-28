@@ -14,11 +14,10 @@
 
 
 <body>
-    <div >
-
+    <div class="absolute flex items-center mt-12 mr-20 right-5 top-4" >
         <form method="POST" action="{{ route('register') }}">
             @csrf
-                <div class="absolute top-0 right-0 flex items-center mt-4 mr-4">
+                <div class="absolute top-0 right-0 flex items-center mt-1 mr-1">
                     <div class="relative">
                         <img src="images/Estados unidos.png" alt="Bandera de Estados Unidos"
                             class="w-12 h-8 rounded cursor-pointer" onclick="showLine('usa')" />
@@ -34,7 +33,6 @@
                         </div>
 
                     </div>
-
                 </div>
                 <div class="w-full form-container">
                     <div

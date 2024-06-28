@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CalendarioController;
 use App\Http\Controllers\ReporteController;
 use App\Http\Controllers\SoporteController;
+use App\Http\Controllers\CartasController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,3 +38,4 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/calendario', [CalendarioController::class, 'index'])->name('calendario');
 Route::get('/reporte', [ReporteController::class, 'index'])->name('reporte');
 Route::get('/soporte', [SoporteController::class, 'index'])->name('soporte');
+Route::get('/homecartas', [CartasController::class, 'index'])->name('homecartas');

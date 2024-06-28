@@ -1,11 +1,10 @@
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
 <x-app-layout>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    @vite(['resources/js/soporte.js', 'resources/css/soporte.css'])
     <x-sider>
     </x-sider>
-    @vite(['resources/css/soporte.css', 'resources/js/soporte.js', 'resources/css/dashboard.css'])
-
     <body>
         <div class="container">
             <header>
@@ -21,8 +20,7 @@
                     <p><i class="fas fa-map-marker-alt"></i> Dirección: Centro de Innovación</p>
                     <p><i class="fas fa-phone-alt"></i> Phone #: + 800 - 12 12 23 52</p>
                     <div class="buttons">
-                        <button class="chat" onclick="chatWith('Johan Valencia')"><i
-                                class="fas fa-comments"></i></button>
+                        <button class="chat" onclick="chatWith('Johan Valencia')"><i class="fas fa-comments"></i></button>
                         <button class="view-profile" onclick="viewProfile('Johan Valencia')"><i class="fas fa-user"></i>
                             View Profile</button>
                     </div>
@@ -34,8 +32,7 @@
                     <p><i class="fas fa-map-marker-alt"></i> Dirección: Centro de Innovación</p>
                     <p><i class="fas fa-phone-alt"></i> Phone #: + 800 - 12 12 23 52</p>
                     <div class="buttons">
-                        <button class="chat" onclick="chatWith('Jose Camargo')"><i
-                                class="fas fa-comments"></i></button>
+                        <button class="chat" onclick="chatWith('Jose Camargo')"><i class="fas fa-comments"></i></button>
                         <button class="view-profile" onclick="viewProfile('Jose Camargo')"><i class="fas fa-user"></i>
                             View Profile</button>
                     </div>
@@ -47,8 +44,7 @@
                     <p><i class="fas fa-map-marker-alt"></i> Dirección: Centro de Innovación</p>
                     <p><i class="fas fa-phone-alt"></i> Phone #: + 800 - 12 12 23 52</p>
                     <div class="buttons">
-                        <button class="chat" onclick="chatWith('Carlos Escobar')"><i
-                                class="fas fa-comments"></i></button>
+                        <button class="chat" onclick="chatWith('Carlos Escobar')"><i class="fas fa-comments"></i></button>
                         <button class="view-profile" onclick="viewProfile('Carlos Escobar')"><i class="fas fa-user"></i>
                             View Profile</button>
                     </div>
@@ -60,8 +56,7 @@
                     <p><i class="fas fa-map-marker-alt"></i> Dirección: Centro de Innovación</p>
                     <p><i class="fas fa-phone-alt"></i> Phone #: + 800 - 12 12 23 52</p>
                     <div class="buttons">
-                        <button class="chat" onclick="chatWith('Julian Santana')"><i
-                                class="fas fa-comments"></i></button>
+                        <button class="chat" onclick="chatWith('Julian Santana')"><i class="fas fa-comments"></i></button>
                         <button class="view-profile" onclick="viewProfile('Julian Santana')"><i class="fas fa-user"></i>
                             View Profile</button>
                     </div>
@@ -73,7 +68,7 @@
             </div>
         </div>
     </body>
-{{--
+    {{--
     chatbot --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
@@ -98,4 +93,8 @@
             </div>
         </div>
     </body>
+
 </x-app-layout>
+
+
+

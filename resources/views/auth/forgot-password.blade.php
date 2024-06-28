@@ -4,7 +4,7 @@
             <x-authentication-card-logo />
         </x-slot>
     <div class="px-8 pt-6 pb-8 mb-4 bg-white rounded">
-        <div class="mb-4 text-sm text-gray-600">
+        <div class="mb-8 text-sm text-gray-600">
             {{ __('Olvidó tu contraseña? No hay problema. Sólo háganos saber su dirección de correo electrónico y le enviaremos por correo electrónico un enlace de restablecimiento de contraseña que le permitirá elegir uno nuevo') }}
         </div>
 
