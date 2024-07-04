@@ -72,27 +72,27 @@
     chatbot --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
-    <body>
-        <div id="chatbot">
-            <button id="chatbot-btn" class="chatbot-btn">
-                <i class="fas fa-comments"></i>
-            </button>
-            <div id="chat-window" class="hidden">
-                <div id="chat-header">
-                    <span>Soporte Técnico</span>
-                    <button id="clear-history-btn" class="clear-history-btn">Limpiar</button>
-                    <button id="close-chat" class="close-chat-btn">&times;</button>
-                </div>
-                <div id="chat-content">
-                    <div class="message bot-message">Hola! ¿En qué puedo ayudarte hoy?</div>
-                </div>
-                <div id="chat-input">
-                    <input type="text" id="user-input" placeholder="Escribe un mensaje...">
-                    <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
-                </div>
+<body>
+    <div id="chatbot">
+        <button id="chatbot-btn" class="chatbot-btn" style="background: url('/images/wechat.png') no-repeat center center; background-size: contain; width: 50px; height: 50px; border: none;">
+        </button>
+        <div id="chat-window" class="hidden">
+            <div id="chat-header">
+                <span>Soporte Técnico</span>
+                <button id="clear-history-btn" class="clear-history-btn">Limpiar</button>
+                <button id="close-chat" class="close-chat-btn">&times;</button>
+            </div>
+            <div id="chat-content">
+                <div class="message bot-message">Hola! ¿En qué puedo ayudarte hoy?</div>
+            </div>
+            <div id="chat-input">
+                <input type="text" id="user-input" placeholder="Escribe un mensaje...">
+                <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
             </div>
         </div>
-    </body>
+    </div>
+</body>
+
 
 </x-app-layout>
 

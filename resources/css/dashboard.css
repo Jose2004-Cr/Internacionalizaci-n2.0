@@ -2,13 +2,13 @@
 .sidebar {
     width: 4rem;
     transition: width 0.3s ease-in-out, transform 0.3s ease-in-out;
-    background: linear-gradient(135deg, #bd0b29, #5e020c);
+    background: linear-gradient(140deg, #c20f2d, #44020a);
     border-radius: 0 1rem 1rem 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1rem 0;
+    padding: 2rem 0;
     transform: translateX(0);
     position: fixed;
     top: 0;
@@ -40,8 +40,8 @@
     display: flex;
     align-items: center;
     width: 100%;
-    padding: 0.5rem 1rem;
-    color: white;
+    padding: 0.4rem 0rem;
+    color: rgb(255, 255, 255);
     text-decoration: none;
     transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
     border-radius: 0.5rem;
@@ -72,7 +72,7 @@
 
 .sidebar h5 {
     text-align: center;
-    color: white;
+    color: rgb(255, 255, 255);
     margin-bottom: 1rem;
     font-size: 1rem;
 }
