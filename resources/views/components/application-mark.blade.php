@@ -7,7 +7,6 @@
 
 
 <canvas id="myCanvas" width="60" height="30"></canvas>
-
 {{-- <style>
   @keyframes rotate {
     from { transform: rotate(0deg); }

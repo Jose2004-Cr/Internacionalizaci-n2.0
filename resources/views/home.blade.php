@@ -1,95 +1,8 @@
 <x-app-layout>
     <x-sider>
     </x-sider>
-
-    {{-- @vite(['resources/css/home.css', 'resources/js/home.js','resources/css/dashboard.css']) --}}
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-        /* Custom styles */
-        body {
-            background-color: #f0f4f8;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
-
-        .card {
-            background-color: #1E3A8A;
-            /* Blue color */
-            color: white;
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        .slide-in {
-            position: fixed;
-            top: 0;
-            right: 0;
-            height: 100%;
-            width: 0;
-            overflow: hidden;
-            background: white;
-            transition: width 0.3s ease-in-out;
-            box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-            padding: 20px;
-        }
-
-        .slide-in.active {
-            width: 400px;
-        }
-
-        .modal-header,
-        .modal-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .modal-body {
-            margin-top: 20px;
-        }
-
-        /* Table styles */
-        .table-header {
-            background-color: #1E3A8A;
-            color: white;
-        }
-
-        .table-body .status.active {
-            background-color: #48BB78;
-            color: white;
-            padding: 4px 8px;
-            border-radius: 4px;
-            text-align: center;
-        }
-
-        .table-body .status.finalized {
-            background-color: #FF6B6B;
-            color: white;
-            padding: 4px 8px;
-            border-radius: 4px;
-            text-align: center;
-        }
-
-        .table-body .details {
-            color: #1E40AF;
-            text-decoration: underline;
-            cursor: pointer;
-        }
-    </style>
-    </head>
-
+    @vite (['resources/css/home.css','resources/js/home.js'])
     <body>
         <div class="container">
             <div class="flex items-center justify-between mb-6">
@@ -103,7 +16,7 @@
                     <div class="grid grid-cols-3 gap-6" id="eventsGrid">
                         <!-- Event cards will be dynamically added here -->
                     </div>
-                    <div class="mt-8">
+                    <div class="mt-12">
                         <h2 class="text-xl font-bold text-gray-800">Eventos Registrados</h2>
                         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                             <div
@@ -118,7 +31,7 @@
                                     </div>
                                     <input type="text" id="table-search"
                                         class="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                        placeholder="Search for items">
+                                        placeholder="Buscar">
                                 </div>
                             </div>
                             <table id="eventsTable" class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -174,8 +87,207 @@
                     <div class="mb-4">
                         <label for="eventLocation" class="block mb-2 font-bold text-gray-700">Ubicación del
                             Evento</label>
-                        <input type="text" id="eventLocation"
+                        <select id="eventLocation"
                             class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-200">
+                            <option value="">Seleccione un país</option>
+                            <option value="Afghanistan">Afghanistan</option>
+                            <option value="Albania">Albania</option>
+                            <option value="Algeria">Algeria</option>
+                            <option value="Andorra">Andorra</option>
+                            <option value="Angola">Angola</option>
+                            <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                            <option value="Argentina">Argentina</option>
+                            <option value="Armenia">Armenia</option>
+                            <option value="Australia">Australia</option>
+                            <option value="Austria">Austria</option>
+                            <option value="Azerbaijan">Azerbaijan</option>
+                            <option value="Bahamas">Bahamas</option>
+                            <option value="Bahrain">Bahrain</option>
+                            <option value="Bangladesh">Bangladesh</option>
+                            <option value="Barbados">Barbados</option>
+                            <option value="Belarus">Belarus</option>
+                            <option value="Belgium">Belgium</option>
+                            <option value="Belize">Belize</option>
+                            <option value="Benin">Benin</option>
+                            <option value="Bhutan">Bhutan</option>
+                            <option value="Bolivia">Bolivia</option>
+                            <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                            <option value="Botswana">Botswana</option>
+                            <option value="Brazil">Brazil</option>
+                            <option value="Brunei">Brunei</option>
+                            <option value="Bulgaria">Bulgaria</option>
+                            <option value="Burkina Faso">Burkina Faso</option>
+                            <option value="Burundi">Burundi</option>
+                            <option value="Cabo Verde">Cabo Verde</option>
+                            <option value="Cambodia">Cambodia</option>
+                            <option value="Cameroon">Cameroon</option>
+                            <option value="Canada">Canada</option>
+                            <option value="Central African Republic">Central African Republic</option>
+                            <option value="Chad">Chad</option>
+                            <option value="Chile">Chile</option>
+                            <option value="China">China</option>
+                            <option value="Colombia">Colombia</option>
+                            <option value="Comoros">Comoros</option>
+                            <option value="Congo, Democratic Republic of the">Congo, Democratic Republic of the
+                            </option>
+                            <option value="Congo, Republic of the">Congo, Republic of the</option>
+                            <option value="Costa Rica">Costa Rica</option>
+                            <option value="Croatia">Croatia</option>
+                            <option value="Cuba">Cuba</option>
+                            <option value="Cyprus">Cyprus</option>
+                            <option value="Czech Republic">Czech Republic</option>
+                            <option value="Denmark">Denmark</option>
+                            <option value="Djibouti">Djibouti</option>
+                            <option value="Dominica">Dominica</option>
+                            <option value="Dominican Republic">Dominican Republic</option>
+                            <option value="Ecuador">Ecuador</option>
+                            <option value="Egypt">Egypt</option>
+                            <option value="El Salvador">El Salvador</option>
+                            <option value="Equatorial Guinea">Equatorial Guinea</option>
+                            <option value="Eritrea">Eritrea</option>
+                            <option value="Estonia">Estonia</option>
+                            <option value="Eswatini">Eswatini</option>
+                            <option value="Ethiopia">Ethiopia</option>
+                            <option value="Fiji">Fiji</option>
+                            <option value="Finland">Finland</option>
+                            <option value="France">France</option>
+                            <option value="Gabon">Gabon</option>
+                            <option value="Gambia">Gambia</option>
+                            <option value="Georgia">Georgia</option>
+                            <option value="Germany">Germany</option>
+                            <option value="Ghana">Ghana</option>
+                            <option value="Greece">Greece</option>
+                            <option value="Grenada">Grenada</option>
+                            <option value="Guatemala">Guatemala</option>
+                            <option value="Guinea">Guinea</option>
+                            <option value="Guinea-Bissau">Guinea-Bissau</option>
+                            <option value="Guyana">Guyana</option>
+                            <option value="Haiti">Haiti</option>
+                            <option value="Honduras">Honduras</option>
+                            <option value="Hungary">Hungary</option>
+                            <option value="Iceland">Iceland</option>
+                            <option value="India">India</option>
+                            <option value="Indonesia">Indonesia</option>
+                            <option value="Iran">Iran</option>
+                            <option value="Iraq">Iraq</option>
+                            <option value="Ireland">Ireland</option>
+                            <option value="Israel">Israel</option>
+                            <option value="Italy">Italy</option>
+                            <option value="Jamaica">Jamaica</option>
+                            <option value="Japan">Japan</option>
+                            <option value="Jordan">Jordan</option>
+                            <option value="Kazakhstan">Kazakhstan</option>
+                            <option value="Kenya">Kenya</option>
+                            <option value="Kiribati">Kiribati</option>
+                            <option value="Korea, North">Korea, North</option>
+                            <option value="Korea, South">Korea, South</option>
+                            <option value="Kuwait">Kuwait</option>
+                            <option value="Kyrgyzstan">Kyrgyzstan</option>
+                            <option value="Laos">Laos</option>
+                            <option value="Latvia">Latvia</option>
+                            <option value="Lebanon">Lebanon</option>
+                            <option value="Lesotho">Lesotho</option>
+                            <option value="Liberia">Liberia</option>
+                            <option value="Libya">Libya</option>
+                            <option value="Liechtenstein">Liechtenstein</option>
+                            <option value="Lithuania">Lithuania</option>
+                            <option value="Luxembourg">Luxembourg</option>
+                            <option value="Madagascar">Madagascar</option>
+                            <option value="Malawi">Malawi</option>
+                            <option value="Malaysia">Malaysia</option>
+                            <option value="Maldives">Maldives</option>
+                            <option value="Mali">Mali</option>
+                            <option value="Malta">Malta</option>
+                            <option value="Marshall Islands">Marshall Islands</option>
+                            <option value="Mauritania">Mauritania</option>
+                            <option value="Mauritius">Mauritius</option>
+                            <option value="Mexico">Mexico</option>
+                            <option value="Micronesia">Micronesia</option>
+                            <option value="Moldova">Moldova</option>
+                            <option value="Monaco">Monaco</option>
+                            <option value="Mongolia">Mongolia</option>
+                            <option value="Montenegro">Montenegro</option>
+                            <option value="Morocco">Morocco</option>
+                            <option value="Mozambique">Mozambique</option>
+                            <option value="Myanmar">Myanmar</option>
+                            <option value="Namibia">Namibia</option>
+                            <option value="Nauru">Nauru</option>
+                            <option value="Nepal">Nepal</option>
+                            <option value="Netherlands">Netherlands</option>
+                            <option value="New Zealand">New Zealand</option>
+                            <option value="Nicaragua">Nicaragua</option>
+                            <option value="Niger">Niger</option>
+                            <option value="Nigeria">Nigeria</option>
+                            <option value="North Macedonia">North Macedonia</option>
+                            <option value="Norway">Norway</option>
+                            <option value="Oman">Oman</option>
+                            <option value="Pakistan">Pakistan</option>
+                            <option value="Palau">Palau</option>
+                            <option value="Palestine">Palestine</option>
+                            <option value="Panama">Panama</option>
+                            <option value="Papua New Guinea">Papua New Guinea</option>
+                            <option value="Paraguay">Paraguay</option>
+                            <option value="Peru">Peru</option>
+                            <option value="Philippines">Philippines</option>
+                            <option value="Poland">Poland</option>
+                            <option value="Portugal">Portugal</option>
+                            <option value="Qatar">Qatar</option>
+                            <option value="Romania">Romania</option>
+                            <option value="Russia">Russia</option>
+                            <option value="Rwanda">Rwanda</option>
+                            <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+                            <option value="Saint Lucia">Saint Lucia</option>
+                            <option value="Saint Vincent and the Grenadines">Saint Vincent and the Grenadines</option>
+                            <option value="Samoa">Samoa</option>
+                            <option value="San Marino">San Marino</option>
+                            <option value="Sao Tome and Principe">Sao Tome and Principe</option>
+                            <option value="Saudi Arabia">Saudi Arabia</option>
+                            <option value="Senegal">Senegal</option>
+                            <option value="Serbia">Serbia</option>
+                            <option value="Seychelles">Seychelles</option>
+                            <option value="Sierra Leone">Sierra Leone</option>
+                            <option value="Singapore">Singapore</option>
+                            <option value="Slovakia">Slovakia</option>
+                            <option value="Slovenia">Slovenia</option>
+                            <option value="Solomon Islands">Solomon Islands</option>
+                            <option value="Somalia">Somalia</option>
+                            <option value="South Africa">South Africa</option>
+                            <option value="South Sudan">South Sudan</option>
+                            <option value="Spain">Spain</option>
+                            <option value="Sri Lanka">Sri Lanka</option>
+                            <option value="Sudan">Sudan</option>
+                            <option value="Suriname">Suriname</option>
+                            <option value="Sweden">Sweden</option>
+                            <option value="Switzerland">Switzerland</option>
+                            <option value="Syria">Syria</option>
+                            <option value="Taiwan">Taiwan</option>
+                            <option value="Tajikistan">Tajikistan</option>
+                            <option value="Tanzania">Tanzania</option>
+                            <option value="Thailand">Thailand</option>
+                            <option value="Timor-Leste">Timor-Leste</option>
+                            <option value="Togo">Togo</option>
+                            <option value="Tonga">Tonga</option>
+                            <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+                            <option value="Tunisia">Tunisia</option>
+                            <option value="Turkey">Turkey</option>
+                            <option value="Turkmenistan">Turkmenistan</option>
+                            <option value="Tuvalu">Tuvalu</option>
+                            <option value="Uganda">Uganda</option>
+                            <option value="Ukraine">Ukraine</option>
+                            <option value="United Arab Emirates">United Arab Emirates</option>
+                            <option value="United Kingdom">United Kingdom</option>
+                            <option value="United States">United States</option>
+                            <option value="Uruguay">Uruguay</option>
+                            <option value="Uzbekistan">Uzbekistan</option>
+                            <option value="Vanuatu">Vanuatu</option>
+                            <option value="Vatican City">Vatican City</option>
+                            <option value="Venezuela">Venezuela</option>
+                            <option value="Vietnam">Vietnam</option>
+                            <option value="Yemen">Yemen</option>
+                            <option value="Zambia">Zambia</option>
+                            <option value="Zimbabwe">Zimbabwe</option>
+
+                        </select>
                     </div>
                     <div class="mb-4">
                         <label for="eventDescription" class="block mb-2 font-bold text-gray-700">Descripción del
@@ -192,104 +304,6 @@
                 </form>
             </div>
         </div>
-
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const addEventButton = document.getElementById('addEventButton');
-                const eventModal = document.getElementById('eventModal');
-                const closeModalButton = document.getElementById('closeModalButton');
-                const eventForm = document.getElementById('eventForm');
-                const eventsGrid = document.getElementById('eventsGrid');
-                const eventsTableBody = document.getElementById('eventsTableBody');
-                const tableSearch = document.getElementById('table-search');
-
-                let events = [];
-
-                addEventButton.addEventListener('click', function() {
-                    eventModal.classList.remove('hidden');
-                });
-
-                closeModalButton.addEventListener('click', function() {
-                    eventModal.classList.add('hidden');
-                });
-
-                eventForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-
-                    const eventName = document.getElementById('eventName').value;
-                    const eventStartDate = document.getElementById('eventStartDate').value;
-                    const eventEndDate = document.getElementById('eventEndDate').value;
-                    const eventLocation = document.getElementById('eventLocation').value;
-                    const eventDescription = document.getElementById('eventDescription').value;
-
-                    const newEvent = {
-                        name: eventName,
-                        startDate: eventStartDate,
-                        endDate: eventEndDate,
-                        location: eventLocation,
-                        description: eventDescription
-                    };
-
-                    events.push(newEvent);
-                    displayEvents(events);
-
-                    eventModal.classList.add('hidden');
-                    eventForm.reset();
-                });
-
-                function displayEvents(events) {
-                    eventsGrid.innerHTML = '';
-                    eventsTableBody.innerHTML = '';
-
-                    events.forEach(event => {
-                        const currentDate = new Date().toISOString().split('T')[0];
-                        const isActive = new Date(event.endDate) >= new Date(currentDate);
-                        const statusClass = isActive ? 'active' : 'finalized';
-                        const statusText = isActive ? 'Activo' : 'Finalizado';
-
-                        const eventCard = document.createElement('div');
-                        eventCard.className = 'p-4 card rounded shadow-md';
-                        eventCard.innerHTML = `
-                <h2 class="mb-2 text-lg font-bold">${event.name}</h2>
-                <p class="mb-1 text-sm">Inicio: ${event.startDate}</p>
-                <p class="mb-1 text-sm">Finalización: ${event.endDate}</p>
-                <p class="mb-2 text-sm">Ubicación: ${event.location}</p>
-                <p class="mb-4 text-sm">${event.description}</p>
-                <a href="/homecartas" class="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-700">Ver</a>
-            `;
-
-                        const eventRow = document.createElement('tr');
-                        eventRow.className = 'bg-white border-b dark:bg-gray-800 dark:border-gray-700';
-                        eventRow.innerHTML = `
-                <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">${event.name}</td>
-                <td class="px-6 py-4">${event.startDate}</td>
-                <td class="px-6 py-4">${event.endDate}</td>
-                <td class="px-6 py-4">${event.location}</td>
-                <td class="px-6 py-4"><span class="status ${statusClass}">${statusText}</span></td>
-                <td class="px-6 py-4"><a href="/homecartas" class="details">Ver</a></td>
-            `;
-
-                        eventsGrid.appendChild(eventCard);
-                        eventsTableBody.appendChild(eventRow);
-                    });
-                }
-
-                tableSearch.addEventListener('input', function() {
-                    const searchValue = tableSearch.value.toLowerCase();
-                    const filteredEvents = events.filter(event =>
-                        event.name.toLowerCase().includes(searchValue) ||
-                        event.startDate.toLowerCase().includes(searchValue) ||
-                        event.endDate.toLowerCase().includes(searchValue) ||
-                        event.location.toLowerCase().includes(searchValue) ||
-                        event.description.toLowerCase().includes(searchValue)
-                    );
-                    displayEvents(filteredEvents);
-                });
-
-                // Initial display of events
-                displayEvents(events);
-            });
-        </script>
     </body>
 
 </x-app-layout>

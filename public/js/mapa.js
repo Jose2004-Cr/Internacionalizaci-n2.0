@@ -15,10 +15,6 @@ var locations = [{
 },
 {
     coords: [33.93911, 67.709953],
-    name: ' Afghanistan'
-},
-{
-    coords: [33.93911, 67.709953],
     name: "Afghanistan"
 },
 {
@@ -803,7 +799,7 @@ fetch('https://raw.githubusercontent.com/datasets/geo-countries/master/data/coun
     .then(data => {
         var colors = {};
         var colorIndex = 0;
-        var pastelColors = ['#FFD1DC', '#FF9A8B', '#FF96A8', '#FFC1A6', '#FFD5A5', '#E2F0CB', '#B5EAD7',
+        var pastelColors = [ '#FF9A8B', '#798E9B', '#FFC1A6', '#FFD5A5', '#E2F0CB', '#B5EAD7',
             '#C7CEEA'
         ];
 
