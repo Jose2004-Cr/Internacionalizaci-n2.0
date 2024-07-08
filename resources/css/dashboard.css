@@ -2,7 +2,7 @@
 .sidebar {
     width: 4rem;
     transition: width 0.3s ease-in-out, transform 0.3s ease-in-out;
-    background: linear-gradient(140deg, #c20f2d, #44020a);
+    background: linear-gradient(140deg, #101084dc, #0f293e);
     border-radius: 0 1rem 1rem 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     display: flex;
@@ -16,6 +16,24 @@
     height: 100%;
     z-index: 1000;
 }
+
+/* .sidebar {
+    width: 4rem;
+    transition: width 0.3s ease-in-out, transform 0.3s ease-in-out;
+    background: linear-gradient(140deg, #0f293e, #0f293e);
+    border-radius: 0 1rem 1rem 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0;
+    transform: translateX(0);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 1000;
+} */
 
 .sidebar.hidden {
     transform: translateX(-100%);

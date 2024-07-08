@@ -19,7 +19,7 @@
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="bg-gray-100 rounded shadow col-md-3 scrollable-table">
-                                    <h2 class="mb-4 text-center text-primary fw-bold">Usuarios por país</h2> <input
+                                    <br><h1 class="mb-4 text-center text-gray-900 fw-bold">USUARIOS POR PAIS</h1> <input
                                         type="text" id="search" class="form-control search-bar"
                                         placeholder="Buscar por país...">
                                     <table class="table table-striped table-hover">
@@ -31,9 +31,9 @@
                                         </thead>
                                         <tbody id="user-table"> </tbody>
                                     </table>
-                                    <div id="pagination" class="mb-3 d-flex justify-content-center"> <button
-                                            id="prev" class="pagination-button me-2">Anterior <- </button> <button
-                                                    id="next" class="pagination-button">Siguiente -> </button>
+                                    <div id="pagination" class="mb-1 d-flex justify-content-center"> <button
+                                            id="prev" class="pagination-button me-1">Anterior</button> <button
+                                                    id="next" class="pagination-button">Siguiente</button>
                                     </div>
                                 </div>
                                 <div class="col-md-9">

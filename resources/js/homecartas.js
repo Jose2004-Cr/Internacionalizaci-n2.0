@@ -119,3 +119,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // Inicializa la tabla con todos los participantes
     renderTable(participants);
 });
+
+
+

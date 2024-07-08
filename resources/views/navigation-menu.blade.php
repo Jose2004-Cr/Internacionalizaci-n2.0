@@ -99,8 +99,9 @@
                             </div>
 
                             <x-dropdown-link href="{{ route('profile.show') }}">
-                                {{ __('Perfil') }}
+                                {{ __('Configuracion') }}
                             </x-dropdown-link>
+
 
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                                 <x-dropdown-link href="{{ route('api-tokens.index') }}">

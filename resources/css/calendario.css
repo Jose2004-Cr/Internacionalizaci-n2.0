@@ -22,17 +22,20 @@
 
 .sidebar {
     width: 4rem;
-    transition: width 0.3s ease-in-out;
-    background: linear-gradient(135deg, #bd0b29, #5e020c);
+    transition: width 0.3s ease-in-out, transform 0.3s ease-in-out;
+    background: linear-gradient(140deg, #101084dc, #0F293E);
     border-radius: 0 1rem 1rem 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1rem 0;
+    padding: 2rem 0;
+    transform: translateX(0);
     position: fixed;
-    z-index: 1;
-    height: 100vh;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 1000;
 }
 
 .sidebar:hover {

@@ -1,4 +1,4 @@
-<br><div style="position: relative;">
+<br><div style="position: relative;top: 0; left: 0;">
     <img src="{{ asset('/images/logosinrotar.png') }}" alt="Camg" style="width: 80px; height: 80px;">
      <div style="position: absolute; top: 0; left: 0;">
          <img src="{{ asset('/images/logoquerota.png') }}" alt="rotacion" style="width: 80px; height: 80px; transform-origin: center center; animation: rotate 8s linear infinite;">
