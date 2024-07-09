@@ -100,7 +100,7 @@
                                 <x-label for="no_identificado"
                                     class="inline-flex items-center gap-1 px-3 py-4 cursor-pointer"
                                     onclick="check('no_identificado')">
-                                    <span class="text-gray-700">{{ __('No identificado') }}</span>
+                                    <span class="text-gray-700">{{ __('Caballo') }}</span>
                                     <span id="check-no_identificado"
                                         class="w-4 h-4 border border-blue-700 rounded">
                                         <i class="hidden text-white fas fa-check"></i>
