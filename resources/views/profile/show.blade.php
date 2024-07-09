@@ -5,10 +5,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <body class="flex">
-        <nav class="fixed top-0 left-0 h-screen p-3 text-white bg-[#0F293E] w-58">
+        <nav class="fixed top-0 left-0 h-screen p-3 text-white bg-[#0F293E] w-55">
             <ul>
-                <li class="mb-2 font-bold">AJUSTES DE USUARIO</li>
-                <hr>
+                <li class="mb-2 font-bold text-gray-400">AJUSTES DE USUARIO</li>
+                <hr><BR>
                 <li><button class="block w-full p-2 text-left hover:bg-gray-700" onclick="showContent('mi-cuenta')">Mi
                         cuenta</button></li>
                 <li><button class="block w-full p-2 text-left hover:bg-gray-700"
@@ -16,14 +16,14 @@
                 <li><button class="block w-full p-2 text-left hover:bg-gray-700"
                         onclick="showContent('privacidad')">Privacidad y seguridad</button></li>
 
-                <li class="mt-4 font-bold">AJUSTES DE ACTIVIDAD</li>
-                <hr>
+                <li class="mt-4 font-bold text-gray-400">AJUSTES DE APLICACION</li>
+                <hr><BR>
                 <li><button class="block w-full p-2 text-left hover:bg-gray-700"
                         onclick="showContent('Apariencia')">Apariencia</button></li>
                 <li><button class="block w-full p-2 text-left hover:bg-gray-700"
                         onclick="showContent('Idiomas')">Idiomas</button></li>
-                <li class="mt-4 font-bold">AJUSTES DE APLICACION</li>
-                <hr>
+                <li class="mt-4 font-bold text-gray-400">AJUSTES DE ACTIVIDADES</li>
+                <hr><BR>
                 <li><button class="block w-full p-2 text-left hover:bg-gray-700"
                         onclick="showContent('Avanzado')">Configuracion Avanzada</button></li>
 

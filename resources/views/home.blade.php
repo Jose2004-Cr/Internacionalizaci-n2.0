@@ -8,7 +8,7 @@
             <div class="flex items-center justify-between mb-6">
                 <h1 class="text-3xl font-bold text-gray-800">Agregados Reciente...</h1>
                 <button id="addEventButton"
-                    class="px-4 py-2 text-white bg-blue-500 rounded shadow-md hover:bg-blue-700">Agregar Evento
+                    class="px-4 py-2 text-white bg-[#0F293E] rounded shadow-md hover:bg-blue-900">Agregar Evento
                     +</button>
             </div>
             <section>
@@ -299,7 +299,7 @@
                         <button type="button" id="closeModalButton"
                             class="px-4 py-2 mr-2 text-gray-700 bg-gray-200 rounded hover:bg-gray-300">Cancelar</button>
                         <button type="submit"
-                            class="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-700">Agregar Evento</button>
+                            class="px-4 py-2 text-white bg-[#0F293E]  rounded hover:bg-blue-900">Agregar Evento</button>
                     </div>
                 </form>
             </div>

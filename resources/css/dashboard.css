@@ -1,5 +1,5 @@
 /* Estilos de la barra lateral */
-.sidebar {
+/* .sidebar {
     width: 4rem;
     transition: width 0.3s ease-in-out, transform 0.3s ease-in-out;
     background: linear-gradient(140deg, #101084dc, #0f293e);
@@ -15,12 +15,12 @@
     left: 0;
     height: 100%;
     z-index: 1000;
-}
+} */
 
-/* .sidebar {
+.sidebar {
     width: 4rem;
     transition: width 0.3s ease-in-out, transform 0.3s ease-in-out;
-    background: linear-gradient(140deg, #0f293e, #0f293e);
+    background: linear-gradient(140deg, #0f293ee6, #0f293e);
     border-radius: 0 1rem 1rem 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     display: flex;
@@ -33,19 +33,19 @@
     left: 0;
     height: 100%;
     z-index: 1000;
-} */
+}
 
 .sidebar.hidden {
     transform: translateX(-100%);
 }
 
 .sidebar:hover {
-    width: 10rem;
+    width: 9rem;
 }
 
 .expand-text {
     opacity: 0;
-    margin-left: 0.5rem;
+    margin-left: 0.2rem;
     white-space: nowrap;
     transition: opacity 0.2s ease-in-out;
 }
@@ -73,7 +73,7 @@
 }
 
 .sidebar-item:hover {
-    background-color: #0F293E;
+    background-color: #88888e;
     transform: scale(0.95);
 }
 
@@ -90,7 +90,7 @@
 
 .sidebar h5 {
     text-align: center;
-    color: rgb(255, 255, 255);
+    color: rgb(250, 250, 250);
     margin-bottom: 1rem;
     font-size: 1rem;
 }

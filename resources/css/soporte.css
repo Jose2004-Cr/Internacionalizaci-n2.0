@@ -91,22 +91,22 @@ header p strong {
 }
 
 .profile-card .buttons .chat {
-    background-color: #28a745;
+    background-color: #218739;
 }
 
 .profile-card .buttons .chat:hover {
-    background-color: #218838;
+    background-color: #186429;
 }
 
 .profile-card .buttons .view-profile {
-    background-color: #007bff;
+    background-color: #0F293E;
     display: flex;
     align-items: center;
     gap: 5px;
 }
 
 .profile-card .buttons .view-profile:hover {
-    background-color: #0056b3;
+    background-color: #044183;
 }
 
 .pagination {
@@ -126,15 +126,15 @@ header p strong {
 }
 
 .pagination .page:hover {
-    background-color: #007bff;
+    background-color: #0F293E;
     color: #fff;
-    border: 1px solid #007bff;
+    border: 1px solid #044183;
 }
 
 .pagination .page.active {
-    background-color: #007bff;
+    background-color: #0F293E;
     color: #fff;
-    border: 1px solid #007bff;
+    border: 1px solid #044183;
 }
 /* chat bot  */
 
@@ -146,7 +146,7 @@ header p strong {
 }
 
 .chatbot-btn {
-    background-color: #007bff;
+    background-color: #044183;
     border: none;
     border-radius: 50%;
     padding: 15px;
@@ -161,7 +161,7 @@ header p strong {
 }
 
 .chatbot-btn:hover {
-    background-color: #0056b3;
+    background-color: #044183;
 }
 
 #chat-window {
