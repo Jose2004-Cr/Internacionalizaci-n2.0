@@ -30,15 +30,11 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/mapa', [MapaController::class, 'index'])->name('mapa');
+    Route::get('/calendario', [CalendarioController::class, 'index'])->name('calendario');
+    Route::get('/reporte', [ReporteController::class, 'index'])->name('reporte');
+    Route::get('/soporte', [SoporteController::class, 'index'])->name('soporte');
+    Route::get('/homecartas', [CartasController::class, 'index'])->name('homecartas');
 });
-
-
-
-
-
-Route::get('/mapa', [MapaController::class, 'index'])->name('mapa');
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::get('/calendario', [CalendarioController::class, 'index'])->name('calendario');
-Route::get('/reporte', [ReporteController::class, 'index'])->name('reporte');
-Route::get('/soporte', [SoporteController::class, 'index'])->name('soporte');
-Route::get('/homecartas', [CartasController::class, 'index'])->name('homecartas');

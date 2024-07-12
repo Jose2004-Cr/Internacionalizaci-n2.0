@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('nacionalidads', function (Blueprint $table) {
             $table->id();
+            $table->Integer(Code);
+            $table->String(ISO3);
+            $table->String(Nombre);
             $table->timestamps();
         });
     }
