@@ -15,7 +15,7 @@
     <body class="antialiased bg-gray-100 sans-serif">
         <div class="h-screen px-4 py-2 mx-auto md:py-96 md:ml-16" id="app">
             <div class="overflow-hidden bg-white rounded-lg shadow">
-                <div class="flex items-center justify-between px-6 py-2 bg-[#0F293E]">
+                <div class="flex items-center justify-between px-6 py-2 bg-[#0f293ee6]">
                     <div>
                         <span id="month-name" class="text-lg font-bold text-white"></span>
                         <span id="year" class="ml-1 text-lg font-bold text-white"></span>

@@ -44,7 +44,7 @@
 }
 
 .sidebar-item:hover {
-    background-color: #0F293E;
+    background-color: #0f293ee6;
     transform: scale(0.95);
 }
 
@@ -135,7 +135,7 @@ li {
 }
 
 .table-striped>tbody>tr:nth-of-type(odd) {
-    background-color: #07213c;
+    background-color: #0f293ee6;
 }
 
 .table-hover>tbody>tr:hover {
@@ -158,11 +158,11 @@ li {
 }
 
 .button-primary:hover {
-    background-color: #0F293E;
+    background-color: #0f293ee6;
 }
 
 .pagination-button {
-    background-color: #0F293E;
+    background-color: #0f293ee6;
     color: white;
     padding: 8px 16px;
     margin: 4px;
@@ -177,7 +177,7 @@ li {
 }
 
 .details-button {
-    background-color: #129ff0;
+    background-color: #1155ac;
     color: white;
     padding: 5px 10px;
     border: none;
@@ -186,5 +186,5 @@ li {
 }
 
 .details-button:hover {
-    background-color: #0056b3;
+    background-color: #12234e;
 }

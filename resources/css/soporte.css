@@ -91,22 +91,22 @@ header p strong {
 }
 
 .profile-card .buttons .chat {
-    background-color: #218739;
+    background-color: #2cd052;
 }
 
 .profile-card .buttons .chat:hover {
-    background-color: #186429;
+    background-color: #29c94c;
 }
 
 .profile-card .buttons .view-profile {
-    background-color: #0F293E;
+    background-color: #044183;
     display: flex;
     align-items: center;
     gap: 5px;
 }
 
 .profile-card .buttons .view-profile:hover {
-    background-color: #044183;
+    background-color:#0f293ee6;
 }
 
 .pagination {
@@ -126,13 +126,13 @@ header p strong {
 }
 
 .pagination .page:hover {
-    background-color: #0F293E;
+    background-color: #0f293ee6;
     color: #fff;
     border: 1px solid #044183;
 }
 
 .pagination .page.active {
-    background-color: #0F293E;
+    background-color: #0f293ee6;
     color: #fff;
     border: 1px solid #044183;
 }
@@ -185,7 +185,7 @@ header p strong {
 }
 
 #chat-header {
-    background-color: #007bff;
+    background-color: #0f293ee6;
     color: #fff;
     padding: 10px;
     display: flex;
@@ -227,7 +227,7 @@ header p strong {
 
 #chat-input button {
     padding: 10px;
-    background-color: #007bff;
+    background-color: #2cd052;
     border: none;
     color: #fff;
     border-radius: 5px;
@@ -250,7 +250,7 @@ header p strong {
 }
 
 .user-message {
-    background-color: #007bff;
+    background-color: #0f2944;
     color: #fff;
     align-self: flex-end;
 }

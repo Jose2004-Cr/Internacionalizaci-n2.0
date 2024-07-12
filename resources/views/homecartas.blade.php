@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 <link rel="stylesheet" href="https://unpkg.com/leaflet-fullscreen/dist/leaflet.fullscreen.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 <x-app-layout>
     <x-sider>
     </x-sider>
@@ -73,7 +74,7 @@
                             <input type="text" id="participantes"
                                 class="flex-grow h-12 p-3 bg-gray-100 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 placeholder="Nombre del participante" oninput="updateParticipantCounter()"
-                                autocomplete="off">
+                                autocomplete="off" readonly>
                             <button type="button" id="addParticipantButton"
                                 class="p-2 ml-2 text-white bg-blue-500 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 onclick="addParticipant()" disabled>+</button>
@@ -94,7 +95,7 @@
                             class="w-full h-12 p-3 bg-gray-100 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                             placeholder="Fecha de vencimiento" readonly>
                     </div>
-                    <div class="flex flex-col mb-4">
+                    <button data-modal-target="default-modal" data-modal-toggle="default-modal" class="flex flex-col mb-4">
                         <label for="personasAsistidasBtn" class="mb-2 text-xl font-bold text-blue-800">Personas asistidas</label>
                         <div class="relative">
                             <input type="button" id="personasAsistidasBtn"
@@ -108,7 +109,102 @@
                                     clip-rule="evenodd" />
                             </svg>
                         </div>
-                    </div>
+                    </button>
+                                            <!-- Main modal -->
+                        <div id="default-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                            <div class="relative w-full max-w-2xl max-h-full p-4">
+                                <!-- Modal content -->
+                                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                                    <!-- Modal header -->
+                                    <div class="flex items-center justify-between p-4 border-b rounded-t md:p-5 dark:border-gray-600">
+                                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                                            Personas asistidas
+                                        </h3>
+                                        <button type="button" class="inline-flex items-center justify-center w-8 h-8 text-sm text-gray-400 bg-transparent rounded-lg hover:bg-gray-200 hover:text-gray-900 ms-auto dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="default-modal">
+                                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                                            </svg>
+                                            <span class="sr-only">Close modal</span>
+                                        </button>
+                                    </div>
+                                    <!-- Modal body -->
+                                    <div class="p-4 space-y-4 md:p-5">
+
+
+                                        <div class="relative overflow-x-auto">
+                                            <table class="w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400">
+                                                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                                    <tr>
+                                                        <th scope="col" class="px-6 py-3">
+                                                            Nombre
+                                                        </th>
+                                                        <th scope="col" class="px-6 py-3">
+                                                            Tipo de actividad
+                                                        </th>
+                                                        <th scope="col" class="px-6 py-3">
+                                                            Universidad
+                                                        </th>
+                                                        <th scope="col" class="px-6 py-3">
+                                                            Programa
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                            *
+                                                        </th>
+                                                        <td class="px-6 py-4">
+                                                            *
+                                                        </td>
+                                                        <td class="px-6 py-4">
+                                                           *
+                                                        </td>
+                                                        <td class="px-6 py-4">
+                                                            *
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                            *
+                                                        </th>
+                                                        <td class="px-6 py-4">
+                                                            *
+                                                        </td>
+                                                        <td class="px-6 py-4">
+                                                            *
+                                                        </td>
+                                                        <td class="px-6 py-4">
+                                                            *
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="bg-white dark:bg-gray-800">
+                                                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                            *
+                                                        </th>
+                                                        <td class="px-6 py-4">
+                                                           *
+                                                        </td>
+                                                        <td class="px-6 py-4">
+                                                            *
+                                                        </td>
+                                                        <td class="px-6 py-4">
+                                                            *
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                    </div>
+                                    <!-- Modal footer -->
+                                    <div class="flex items-center p-4 border-t border-gray-200 rounded-b md:p-5 dark:border-gray-600">
+                                        <button data-modal-hide="default-modal" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Salir</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                 </div>
             </form>
             <div class="flex justify-end mt-6">
@@ -130,6 +226,7 @@
             document.getElementById("tipoActividad").readOnly = false;
             document.getElementById("nombreResponsable").readOnly = false;
             document.getElementById("fechaVencimiento").readOnly = false;
+            document.getElementById("participantes").readOnly = false;
             document.getElementById("deleteButton").classList.remove('hidden');
             document.getElementById("saveButton").classList.remove('hidden');
             document.getElementById("editButton").classList.add('hidden');
@@ -140,6 +237,7 @@
             document.getElementById("tipoActividad").readOnly = true;
             document.getElementById("nombreResponsable").readOnly = true;
             document.getElementById("fechaVencimiento").readOnly = true;
+            document.getElementById("participantes").readOnly = true;
             document.getElementById("deleteButton").classList.add('hidden');
             document.getElementById("saveButton").classList.add('hidden');
             document.getElementById("editButton").classList.remove('hidden');
@@ -197,6 +295,146 @@
         });
 
         updateParticipantCounter(); // Llamada inicial para establecer el estado del botón
+
+        //certificar
+        function enableEditMode() {
+                document.getElementById("nombreEvento").readOnly = false;
+                document.getElementById("tipoActividad").readOnly = false;
+                document.getElementById("nombreResponsable").readOnly = false;
+                document.getElementById("fechaVencimiento").readOnly = false;
+                document.getElementById("participantes").readOnly = false;
+                document.getElementById("deleteButton").classList.remove('hidden');
+                document.getElementById("saveButton").classList.remove('hidden');
+                document.getElementById("editButton").classList.add('hidden');
+            }
+
+            function saveChanges() {
+                document.getElementById("nombreEvento").readOnly = true;
+                document.getElementById("tipoActividad").readOnly = true;
+                document.getElementById("nombreResponsable").readOnly = true;
+                document.getElementById("fechaVencimiento").readOnly = true;
+                document.getElementById("participantes").readOnly = true;
+                document.getElementById("deleteButton").classList.add('hidden');
+                document.getElementById("saveButton").classList.add('hidden');
+                document.getElementById("editButton").classList.remove('hidden');
+            }
+
+            function deleteData() {
+                if (confirm("¿Estás seguro de que quieres eliminar este evento?")) {
+                    alert("Evento eliminado");
+                }
+            }
+
+            function addParticipant() {
+                const participantName = document.getElementById("participantes").value.trim();
+                if (participantName) {
+                    const participantList = document.getElementById("participantList");
+                    const participantCount = participantList.children.length;
+
+                    if (participantCount < 10) {
+                        const participantDiv = document.createElement("div");
+                        participantDiv.classList.add("flex", "items-center", "justify-between", "bg-blue-500", "text-white",
+                            "p-0", "rounded-md", "w-20");
+
+                        const nameSpan = document.createElement("span");
+                        nameSpan.textContent = participantName;
+                        participantDiv.appendChild(nameSpan);
+
+                        const removeButton = document.createElement("button");
+                        removeButton.classList.add("text-red-500", "hover:text-red-700", "focus:outline-none", "ml-2");
+                        removeButton.textContent = "×";
+                        removeButton.onclick = function() {
+                            participantDiv.remove();
+                            updateParticipantCounter();
+                        };
+
+                        participantDiv.appendChild(removeButton);
+                        participantList.appendChild(participantDiv);
+                        document.getElementById("participantes").value = "";
+                        updateParticipantCounter();
+                    } else {
+                        alert("Máximo 10 participantes alcanzado");
+                    }
+                }
+            }
+
+            function updateParticipantCounter() {
+                const participantList = document.getElementById("participantList");
+                const participantCount = participantList.children.length;
+                document.getElementById("participantCount").textContent = `| ${participantCount} de 10`;
+                document.getElementById("addParticipantButton").disabled = participantCount >= 10;
+            }
+
+            document.getElementById("participantes").addEventListener("input", function() {
+                const participantName = document.getElementById("participantes").value.trim();
+                document.getElementById("addParticipantButton").disabled = !participantName;
+            });
+
+            updateParticipantCounter(); // Llamada inicial para establecer el estado del botón
+
+//certificado
+document.addEventListener('DOMContentLoaded', function () {
+        const participants = [
+            { nombre: "Juan Pérez", asistio: "Sí", certificado: "No", correo: "juan.perez@example.com" },
+            { nombre: "Ana Gómez", asistio: "Sí", certificado: "No", correo: "ana.gomez@example.com" },
+            // Agrega más participantes según sea necesario
+        ];
+
+        const participantTable = document.getElementById('participantTable');
+        const searchInput = document.getElementById('searchInput');
+        const certificarBtn = document.getElementById('certificarBtn');
+
+        function renderTable(data) {
+            participantTable.innerHTML = '';
+            data.forEach((participant, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td class="px-6 py-3 text-left">${participant.nombre}</td>
+                    <td class="px-6 py-3 text-left">${participant.asistio}</td>
+                    <td class="px-6 py-3 text-left">
+                        <svg id="certificado-${index}" class="w-6 h-6 ${participant.certificado === 'Sí' ? 'text-green-500' : 'text-gray-400'} certification-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </td>
+                    <td class="px-6 py-3 text-left">${participant.correo}</td>
+                `;
+                participantTable.appendChild(row);
+            });
+        }
+
+        function filterTable() {
+            const query = searchInput.value.toLowerCase();
+            const filteredParticipants = participants.filter(participant =>
+                participant.nombre.toLowerCase().includes(query) ||
+                participant.correo.toLowerCase().includes(query)
+            );
+            renderTable(filteredParticipants);
+        }
+
+        searchInput.addEventListener('input', filterTable);
+
+        certificarBtn.addEventListener('click', function () {
+            const filteredParticipants = participants.filter(participant =>
+                participant.nombre.toLowerCase().includes(searchInput.value.toLowerCase()) ||
+                participant.correo.toLowerCase().includes(searchInput.value.toLowerCase())
+            );
+
+            filteredParticipants.forEach((participant, index) => {
+                participant.certificado = 'Sí';
+                document.getElementById(`certificado-${index}`).classList.replace('text-gray-400', 'text-green-500');
+            });
+
+            renderTable(participants);
+
+            const link = document.createElement('a');
+            link.href = 'ruta/a/tu/plantilla_de_certificado.pdf';
+            link.download = 'Certificado.pdf';
+            link.click();
+        });
+
+        // Inicializa la tabla con todos los participantes
+        renderTable(participants);
+    });
     </script>
     <body>
         <section class="container w-8/12 p-6 mx-auto mt-16 bg-white rounded-md shadow-md">

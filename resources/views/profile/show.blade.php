@@ -5,14 +5,13 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <body class="flex">
-        <nav class="fixed top-0 left-0 h-screen p-3 text-white bg-[#0F293E] w-55">
+        <nav class="fixed top-16 left-0 h-screen p-3 text-white bg-[#0f293e] w-55">
             <ul>
                 <li class="mb-2 font-bold text-gray-400">AJUSTES DE USUARIO</li>
                 <hr><BR>
                 <li><button class="block w-full p-2 text-left hover:bg-gray-700" onclick="showContent('mi-cuenta')">Mi
                         cuenta</button></li>
-                <li><button class="block w-full p-2 text-left hover:bg-gray-700"
-                        onclick="showContent('perfiles')">Perfiles</button></li>
+
                 <li><button class="block w-full p-2 text-left hover:bg-gray-700"
                         onclick="showContent('privacidad')">Privacidad y seguridad</button></li>
 
@@ -24,8 +23,14 @@
                         onclick="showContent('Idiomas')">Idiomas</button></li>
                 <li class="mt-4 font-bold text-gray-400">AJUSTES DE ACTIVIDADES</li>
                 <hr><BR>
+
                 <li><button class="block w-full p-2 text-left hover:bg-gray-700"
                         onclick="showContent('Avanzado')">Configuracion Avanzada</button></li>
+                <li><button class="block w-full p-2 text-left hover:bg-gray-700"
+
+                        onclick="showContent('Roles')">Roles</button></li>
+                <li><button class="block w-full p-2 text-left hover:bg-gray-700"
+                        onclick="showContent('Permisos')">Permisos</button></li>
 
             </ul>
         </nav>
@@ -47,6 +52,17 @@
                         <x-section-border />
                     @endif
 
+
+
+                </div>
+            </div>
+            <div id="perfiles" class="hidden">
+                <div class="p-10 bg-white shadow sm:rounded-lg">
+                    Contenido para Perfiles
+                </div>
+            </div>
+            <div id="privacidad" class="hidden">
+                <div class="p-10 bg-white shadow sm:rounded-lg">
                     @if (Laravel\Fortify\Features::canManageTwoFactorAuthentication())
                         <div class="mt-10 mb-8 sm:mt-0">
                             @livewire('profile.two-factor-authentication-form')
@@ -58,22 +74,6 @@
                         @livewire('profile.logout-other-browser-sessions-form')
                     </div>
 
-                    @if (Laravel\Jetstream\Jetstream::hasAccountDeletionFeatures())
-                        <x-section-border />
-                        <div class="mt-10 mb-8 sm:mt-0">
-                            @livewire('profile.delete-user-form')
-                        </div>
-                    @endif
-                </div>
-            </div>
-            <div id="perfiles" class="hidden">
-                <div class="p-10 bg-white shadow sm:rounded-lg">
-                    Contenido para Perfiles
-                </div>
-            </div>
-            <div id="privacidad" class="hidden">
-                <div class="p-10 bg-white shadow sm:rounded-lg">
-                    Contenido para Privacidad y seguridad
                 </div>
             </div>
             <div id="Apariencia" class="hidden">
@@ -86,9 +86,24 @@
                     Contenido De Idiomas
                 </div>
             </div>
+            <div id="Roles" class="hidden">
+                <div class="p-10 bg-white shadow sm:rounded-lg">
+                    Contenido De Roles
+                </div>
+            </div>
+            <div id="Permisos" class="hidden">
+                <div class="p-10 bg-white shadow sm:rounded-lg">
+                    Contenido De Permisos
+                </div>
+            </div>
             <div id="Avanzado" class="hidden">
                 <div class="p-10 bg-white shadow sm:rounded-lg">
-                    Contenido De Configuracion avanzada
+                    @if (Laravel\Jetstream\Jetstream::hasAccountDeletionFeatures())
+                        <x-section-border />
+                        <div class="mt-10 mb-8 sm:mt-0">
+                            @livewire('profile.delete-user-form')
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
