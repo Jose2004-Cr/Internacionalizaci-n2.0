@@ -4,8 +4,7 @@
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
 
 <x-app-layout>
-    <x-sider>
-    </x-sider>
+
     @vite (['resources/css/dashboard.css','resources/css/calendario.css','resources/js/calendario.js'])
 
     <link rel="dns-prefetch" href="//unpkg.com" />
@@ -13,8 +12,8 @@
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
 
     <body class="antialiased bg-gray-100 sans-serif">
-        <div class="h-screen px-4 py-2 mx-auto md:py-96 md:ml-16" id="app">
-            <div class="overflow-hidden bg-white rounded-lg shadow">
+        <div class="flex items-center justify-center h-screen px-4 py-2 mx-auto" id="app">
+            <div class="w-full max-w-4xl overflow-hidden bg-white rounded-lg shadow">
                 <div class="flex items-center justify-between px-6 py-2 bg-[#0f293ee6]">
                     <div>
                         <span id="month-name" class="text-lg font-bold text-white"></span>
@@ -72,7 +71,7 @@
 
         <div id="modal" style="background-color: rgba(0, 0, 0, 0.8)"
             class="fixed top-0 bottom-0 left-0 right-0 z-40 hidden w-full h-full">
-            <div class="absolute relative left-0 right-0 max-w-xl p-4 mx-auto mt-24 overflow-hidden">
+            <div class="absolute left-0 right-0 max-w-xl p-4 mx-auto mt-24 overflow-hidden">
                 <div class="absolute top-0 right-0 inline-flex items-center justify-center w-10 h-10 text-gray-500 bg-white rounded-full shadow cursor-pointer hover:text-gray-800"
                     id="close-modal">
                     <svg class="w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

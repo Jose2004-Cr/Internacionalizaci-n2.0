@@ -1,5 +1,6 @@
 @vite(['resources/css/dashboard.css','resources/js/dashboard.js' ])
 <div class="bg-gray-100">
+
     <div class="fixed top-0 left-0 z-0 h-screen transition-all duration-300 ease-in-out sidebar">
         <h5 class="text-xs font-bold uppercase">HERMES</h5>
         <div class="drawer-content">

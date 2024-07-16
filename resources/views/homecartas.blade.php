@@ -6,8 +6,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 <x-app-layout>
-    <x-sider>
-    </x-sider>
+    
     @vite(['resources/js/homecartas.js', 'resources/css/mapa.css', 'resources/css/dashboard.css'])
 
     <div class="container mx-auto mt-10 px-60">

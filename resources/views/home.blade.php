@@ -1,6 +1,4 @@
 <x-app-layout>
-    <x-sider>
-    </x-sider>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     @vite (['resources/css/home.css','resources/js/home.js'])
     <body>
@@ -30,7 +28,7 @@
                                         </svg>
                                     </div>
                                     <input type="text" id="table-search"
-                                        class="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                        class="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-800 dark:focus:border-blue-500"
                                         placeholder="Buscar">
                                 </div>
                             </div>

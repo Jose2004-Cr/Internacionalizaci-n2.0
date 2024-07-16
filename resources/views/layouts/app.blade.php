@@ -34,15 +34,18 @@
         <!-- Page Heading -->
         @if (isset($header))
         <header class="">
-            <div class="px-1 py-1 mx-auto w-full sm:px-6 lg:px-8">
+            <div class="w-full px-1 py-1 mx-auto sm:px-6 lg:px-8">
                 {{ $header }}
             </div>
         </header>
         @endif
         <!-- Page Content -->
         <main>
+
             <x-sider>
+
             </x-sider>
+
             <div class="w-full">
                 {{ $slot }}
             </div>

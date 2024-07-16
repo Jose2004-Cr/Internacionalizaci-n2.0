@@ -2,9 +2,9 @@
     display: none;
 }
 .calendar-container {
-    height: 800px;
-    overflow-y: auto;
-    padding-left: 6rem;
+    height: 700px;
+    overflow-y:auto;
+    padding-left: 0rem;
 }
 .calendar-grid {
     height: 700px;
@@ -17,7 +17,7 @@
 .calendar-grid > div {
     border-bottom: 1px solid #020523;
     box-sizing: border-box;
-    height: 105px;
+    height: 100px;
 }
 
 .sidebar {
@@ -38,6 +38,10 @@
     z-index: 1000;
 }
 
+.sidebar.hidden {
+    transform: translateX(-100%);
+}
+
 .sidebar:hover {
     width: 9rem;
 }
@@ -53,25 +57,12 @@
     opacity: 1;
 }
 
-.item {
-    flex: 1;
-    width: 200px;
-    height: 500px;
-    flex-grow: 1;
-}
-
-.container {
-    display: flex;
-    width: 100%;
-    height: 400px;
-}
-
 .sidebar-item {
     display: flex;
     align-items: center;
     width: 100%;
-    padding: 0.5rem 1rem;
-    color: white;
+    padding: 0.4rem 0rem;
+    color: rgb(255, 255, 255);
     text-decoration: none;
     transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
     border-radius: 0.5rem;
@@ -102,7 +93,25 @@
 
 .sidebar h5 {
     text-align: center;
-    color: white;
+    color: rgb(250, 250, 250);
     margin-bottom: 1rem;
     font-size: 1rem;
+}
+
+.drawer-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+li {
+    width: 100%;
 }

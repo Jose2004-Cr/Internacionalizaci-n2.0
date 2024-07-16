@@ -5,7 +5,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <body class="flex">
-        <nav class="fixed top-16 left-0 h-screen p-3 text-white bg-[#0f293e] w-55">
+        <nav class="fixed top-0 left-0 h-screen p-3 text-white bg-[#0f293e] w-55">
             <ul>
                 <li class="mb-2 font-bold text-gray-400">AJUSTES DE USUARIO</li>
                 <hr><BR>

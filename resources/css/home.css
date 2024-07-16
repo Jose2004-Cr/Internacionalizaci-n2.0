@@ -14,13 +14,14 @@ body {
 }
 
 .card {
-    background-color: #1E3A8A;
+    background: linear-gradient(140deg, #0d4598e7, #328cd5);
     /* Blue color */
     color: white;
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 .card:hover {
+    border-radius: 4 4rem 4rem 4;
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
