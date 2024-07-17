@@ -2,7 +2,9 @@
 <div class="bg-gray-100">
 
     <div class="fixed top-0 left-0 z-0 h-screen transition-all duration-300 ease-in-out sidebar">
-        <h5 class="text-xs font-bold uppercase">HERMES</h5>
+        <div style="position: relative; top: 0; left: 0;">
+            <img src="{{ asset('/images/globo-terraqueo-con-mapas-de-continentes.png') }}" alt="Camg" style="width: 40px; height: 40px;">
+        </div>
         <div class="drawer-content">
             <ul>
                 <li>

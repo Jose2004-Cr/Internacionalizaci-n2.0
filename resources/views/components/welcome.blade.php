@@ -5,8 +5,8 @@
 <!-- NAV -->
 
 <!-- botn lateral -->
-<div class="flex justify-center min-h-screen bg-gray-600">
-    <div class="relative flex flex-col items-center justify-center min-h-screen bg-gray-100">
+<div >
+    <div>
         <!-- boton lateral -->
         <div class="floating-button" id="floatingButton">
             <a href="/mapa" onclick="MapaGeografico()">
@@ -16,7 +16,7 @@
         </div>
     </div>
     <!-- chart -->
-    <div class="grid p-10 mb-10 3xl:grid-cols-3 md:grid-cols-2 gap-7">
+    <div class="grid p-10 mb-10 4xl:grid-cols-4 md:grid-cols-2 gap-7">
         <div class="p-10 bg-white shadow sm:rounded-lg">
             <div class="chart-container">
                 <canvas id="barChartOut"></canvas>

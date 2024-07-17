@@ -1,0 +1,33 @@
+.navigation-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 8px 40px;
+    width: 100%;
+    margin: 0;
+    background-color: hsl(0, 0%, 100%);
+    box-shadow: 0 8px 8px rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+.navigation-container:hover {
+    box-shadow: 0 0px 0px rgb(255, 255, 255);
+}
+
+.navigation-container a:hover {
+    color: #0f293ee6;
+}
+
+.logoro {
+    margin-left: 100px;
+    margin-right: auto;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}

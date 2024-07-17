@@ -4,12 +4,12 @@
 .calendar-container {
     height: 700px;
     overflow-y:auto;
-    padding-left: 0rem;
+    padding-left: 8rem;
 }
 .calendar-grid {
     height: 700px;
     margin-bottom: -1px;
-    position: relative;
+    position: central;
     z-index: 1;
     overflow: hidden;
 }
@@ -18,6 +18,12 @@
     border-bottom: 1px solid #020523;
     box-sizing: border-box;
     height: 100px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
 }
 
 .sidebar {
@@ -70,8 +76,8 @@
 }
 
 .sidebar-item img {
-    width: 2rem;
-    height: 2rem;
+    width: 1.5rem;
+    height: 1.5rem;
     transition: transform 0.3s ease-in-out;
 }
 

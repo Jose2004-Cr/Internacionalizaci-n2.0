@@ -11,10 +11,8 @@
                 <hr><BR>
                 <li><button class="block w-full p-2 text-left hover:bg-gray-700" onclick="showContent('mi-cuenta')">Mi
                         cuenta</button></li>
-
                 <li><button class="block w-full p-2 text-left hover:bg-gray-700"
                         onclick="showContent('privacidad')">Privacidad y seguridad</button></li>
-
                 <li class="mt-4 font-bold text-gray-400">AJUSTES DE APLICACION</li>
                 <hr><BR>
                 <li><button class="block w-full p-2 text-left hover:bg-gray-700"
@@ -23,15 +21,12 @@
                         onclick="showContent('Idiomas')">Idiomas</button></li>
                 <li class="mt-4 font-bold text-gray-400">AJUSTES DE ACTIVIDADES</li>
                 <hr><BR>
-
                 <li><button class="block w-full p-2 text-left hover:bg-gray-700"
-                        onclick="showContent('Avanzado')">Configuracion Avanzada</button></li>
-                <li><button class="block w-full p-2 text-left hover:bg-gray-700"
-
                         onclick="showContent('Roles')">Roles</button></li>
                 <li><button class="block w-full p-2 text-left hover:bg-gray-700"
                         onclick="showContent('Permisos')">Permisos</button></li>
-
+                <li><button class="block w-full p-2 text-left hover:bg-gray-700"
+                        onclick="showContent('Avanzado')">Configuracion Avanzada</button></li>
             </ul>
         </nav>
 

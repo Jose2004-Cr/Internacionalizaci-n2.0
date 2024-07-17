@@ -4,16 +4,22 @@
             <img class="absolute object-cover w-full h-full" src="images/x2.png" alt="Banner Image" />
         </div>
         <div class="flex flex-col items-center justify-center w-full min-h-screen bg-white md:w-1/2 sm:pt-12">
-            <div>
-                <!-- Aquí podrías insertar el logo si lo tienes definido en algún lugar -->
-                <!-- <x-authentication-card-logo /> -->
-            </div>
-            <div class="w-full px-6 py-8 mt-6 bg-white shadow-md sm:max-w-md sm:rounded-lg">
+            <div class="w-full px-6 py-1 mt-1 bg-white shadow-md sm:max-w-md sm:rounded-lg md:mx-auto lg:max-w-lg xl:max-w-xl">
                 <x-validation-errors class="mb-4" />
 
                 <form method="POST" action="{{ route('register') }}" class="w-full">
                     @csrf
                     <div class="w-full form-container">
+                        <div class="flex justify-end mb-2">
+                            <div class="relative mr-2">
+                                <img src="images/Estados unidos.png" alt="Bandera de Estados Unidos" class="w-12 h-8 rounded cursor-pointer" onclick="showLine('usa')" />
+                                <div id="usa-line" class="hidden h-1 mt-1 transition-all duration-500 bg-red-500 rounded-full"></div>
+                            </div>
+                            <div class="relative">
+                                <img src="images/COLOMBIA.png" alt="Bandera de Colombia" class="w-12 h-8 rounded cursor-pointer" onclick="showLine('colombia')" />
+                                <div id="colombia-line" class="hidden h-1 mt-1 transition-all duration-500 bg-yellow-200 rounded-full"></div>
+                            </div>
+                        </div>
                         <div class="flex items-center justify-center w-full pb-4 border-b-2 border-blue-900 form-header">
                             <h1 class="mb-2 text-2xl font-bold text-center text-blue-900 md:text-3xl lg:text-4xl">
                                 REGISTRAR TUS DATOS
@@ -21,23 +27,14 @@
                         </div>
 
                         <div class="px-4 pt-6 pb-8 mb-4 bg-white rounded">
-                            <div class="flex justify-end mb-4">
-                                <div class="relative mr-2">
-                                    <img src="images/Estados unidos.png" alt="Bandera de Estados Unidos" class="w-12 h-8 rounded cursor-pointer" onclick="showLine('usa')" />
-                                    <div id="usa-line" class="hidden h-1 mt-1 transition-all duration-500 bg-red-500 rounded-full"></div>
-                                </div>
-                                <div class="relative">
-                                    <img src="images/COLOMBIA.png" alt="Bandera de Colombia" class="w-12 h-8 rounded cursor-pointer" onclick="showLine('colombia')" />
-                                    <div id="colombia-line" class="hidden h-1 mt-1 transition-all duration-500 bg-yellow-200 rounded-full"></div>
-                                </div>
-                            </div>
+
 
                             <div>
                                 <x-label for="name" value="{{ __('Nombre Completo *') }}" />
                                 <x-input id="name" class="block w-full mt-1" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
                             </div>
 
-                            <div class="mt-4">
+                            {{-- <div class="mt-4">
                                 <x-label for="countries" value="{{ __('Nacionalidad *') }}" />
                                 <select id="countries" name="Nacionalidad" class="block w-full p-2 mt-1 text-gray-700 bg-gray-100 border border-gray-300 rounded-md shadow-md custom-select focus:outline-none focus:border-gray-500" required>
                                     <option value="" disabled selected>Nombre del país - código del país (ISO3) - código</option>
@@ -50,12 +47,12 @@
                                     <option value="CUB">CUBA | CUB | 192</option>
                                     <option value="PAN">PANAMÁ | PAN | 591</option>
                                 </select>
-                            </div>
+                            </div> --}}
 
-                            <div class="mt-4">
+                            {{-- <div class="mt-4">
                                 <x-label for="fecha" value="{{ __('Fecha de nacimiento *') }}" />
                                 <x-input id="fecha" class="block w-full mt-1" type="date" name="fecha" required />
-                            </div>
+                            </div> --}}
 
                             <div class="mt-4">
                                 <x-label for="genero" value="{{ __('Género') }}" />
@@ -88,19 +85,22 @@
                             </div>
 
                             <div class="mt-4">
-                                <x-label for="tipo_documento" value="{{ __('Tipo de documento *') }}" />
+                                <x-label for="tipo_documento" value="{{ __('Tipo de Documento *') }}" />
                                 <div class="flex gap-4 mt-1">
                                     <select id="tipo_documento" name="tipo_documento" class="block w-full p-2 text-white bg-blue-900 border-blue-900 rounded-md">
                                         <option value="" disabled selected>{{ __('Seleccione Documento') }}</option>
-                                        <option value="cedula_extranjeria">{{ __('Cédula de extranjería') }}</option>
+                                        <option value="cedula_ciudadania">{{ __('Cédula de Ciudadania') }}</option>
+                                        <option value="targeta_identidad">{{ __('Targeta de Identidad') }}</option>
+                                        <option value="cedula_extranjeria">{{ __('Cédula de Extranjería') }}</option>
                                         <option value="pasaporte">{{ __('Pasaporte') }}</option>
                                         <option value="visa">{{ __('Visa') }}</option>
+                                        <option value="otro">{{ __('Otro') }}</option>
                                     </select>
                                     <x-input id="numero_documento" class="block w-full" type="text" name="numero_documento" placeholder="{{ __('Número de documento') }}" />
                                 </div>
                             </div>
 
-                            <div class="mt-4">
+                            {{-- <div class="mt-4">
                                 <x-label for="documento_pdf" value="{{ __('Documento en PDF *') }}" />
                                 <div class="flex flex-col items-center justify-center p-4 mt-2 border border-blue-900 border-dashed rounded-lg">
                                     <label for="file-upload" class="text-blue-900 cursor-pointer">
@@ -109,12 +109,12 @@
                                     <input type="file" id="file-upload" name="documento_pdf" class="hidden" accept="application/pdf" required>
                                     <span class="text-sm text-gray-500">{{ __('Fotos de ambas caras del documento en PDF') }}</span>
                                 </div>
-                            </div>
+                            </div> --}}
 
-                            <div class="mt-4">
+                            {{-- <div class="mt-4">
                                 <x-label for="Fecha_de_Expedicion" value="{{ __('Fecha de Expedición *') }}" />
                                 <x-input id="Fecha_de_Expedicion" class="block w-full mt-1" type="date" name="Fecha_de_Expedicion" required />
-                            </div>
+                            </div> --}}
 
                             <div class="mt-4">
                                 <x-label for="email" value="{{ __('Email *') }}" />
