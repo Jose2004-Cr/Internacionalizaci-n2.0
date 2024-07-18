@@ -18,6 +18,16 @@
                 <form method="POST" action="{{ route('login') }}" class="w-full">
                     @csrf
                     <div class="w-full form-container">
+                        <div class="flex justify-end mb-2">
+                            <div class="relative mr-2">
+                                <img src="images/Estados unidos.png" alt="Bandera de Estados Unidos" class="w-12 h-8 rounded cursor-pointer" onclick="showLine('usa')" />
+                                <div id="usa-line" class="hidden h-1 mt-1 transition-all duration-500 bg-red-500 rounded-full"></div>
+                            </div>
+                            <div class="relative">
+                                <img src="images/COLOMBIA.png" alt="Bandera de Colombia" class="w-12 h-8 rounded cursor-pointer" onclick="showLine('colombia')" />
+                                <div id="colombia-line" class="hidden h-1 mt-1 transition-all duration-500 bg-yellow-200 rounded-full"></div>
+                            </div>
+                        </div>
                         <div class="flex items-center justify-center w-full pb-3 border-b-4 border-[#0066C5] form-header">
                             <h1 class="mb-2 text-2xl font-bold text-center text-[#0066C5] md:text-4xl lg:text-5xl">
                                 Ingresa tus datos

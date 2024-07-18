@@ -4,7 +4,7 @@
             <img class="absolute object-cover w-full h-full" src="images/x2.png" alt="Banner Image" />
         </div>
         <div class="flex flex-col items-center justify-center w-full min-h-screen bg-white md:w-1/2 sm:pt-12">
-            <div class="w-full px-6 py-1 mt-1 bg-white shadow-md sm:max-w-md sm:rounded-lg md:mx-auto lg:max-w-lg xl:max-w-xl">
+            <div class="">
                 <x-validation-errors class="mb-4" />
 
                 <form method="POST" action="{{ route('register') }}" class="w-full">
