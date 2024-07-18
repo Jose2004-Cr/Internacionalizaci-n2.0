@@ -43,6 +43,7 @@
                                         <th scope="col" class="px-6 py-3">Fecha de Inicio</th>
                                         <th scope="col" class="px-6 py-3">Fecha de Finalización</th>
                                         <th scope="col" class="px-6 py-3">Director</th>
+                                        <th scope="col" class="px-6 py-3">Actividad</th>
                                         <th scope="col" class="px-6 py-3">Movilidad</th>
                                         <th scope="col" class="px-6 py-3">Estado</th>
                                         <th scope="col" class="px-6 py-3">Detalles</th>
@@ -84,11 +85,35 @@
                             class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-200">
                     </div>
                     <div class="mb-4">
-                        <label for="eventModalidad" class="block mb-2 font-bold text-gray-700">Tipo de movilidad</label>
+                        <label for="eventclases" class="block mb-2 font-bold text-gray-700">Tipo de Actividades</label>
                         <select
                             class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-200"
                             name="eventModalidad" id="eventModalidad">
-                            <option value="" disabled selected>Seleccione un tipo de movilidad</option>
+                            <option value="" disabled selected>Seleccione un tipo de Actividad</option>
+                            <option value="ruta">Ruta</option>
+                            <option value="ponencia">Ponencia</option>
+                            <option value="clase espejo">Clase Espejo</option>
+                            <option value="catedra abierta">Catedra Abierta</option>
+                            <option value="congreso">Congreso</option>
+                            <option value="COIL">COIL</option>
+                            <option value="convenio">Convenio</option>
+                            <option value="reunion">Reunión</option>
+                            <option value="actividad deportiva">Actividad Deportiva</option>
+                            <option value="actividad multicultural">Actividad Multicultural</option>
+                            <option value="pasantía investigativa">Pasantía Investigativa</option>
+                            <option value="curso en linea">Curso en Linea</option>
+                            <option value="actividad bilingüe/multilingüe">actividad bilingüe/multilingüe</option>
+                            <option value="proyecto de aula">proyecto de aula</option>
+                            <option value="intercambio semestral">Intercambio Semestral</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label for="eventModalidad" class="block mb-2 font-bold text-gray-700">Tipo de
+                            Movilidad</label>
+                        <select
+                            class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-200"
+                            name="eventModalidad" id="eventModalidad">
+                            <option value="" disabled selected>Seleccione un tipo de Movilidad</option>
                             <option value="Entrante virtual">Entrante virtual</option>
                             <option value="Entrante presencial">Entrante presencial</option>
                             <option value="Saliente virtual">Saliente virtual</option>
