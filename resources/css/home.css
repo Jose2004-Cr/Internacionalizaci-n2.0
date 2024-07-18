@@ -1,30 +1,31 @@
-
 /* Custom styles */
 body {
-    background-color: #ffffff;
+    background-color: #f0f4f8;
 }
 
 .container {
     max-width: 1200px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #ffffff;
+    background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
 }
 
 .card {
-    background: linear-gradient(140deg, #0d4598e7, #328cd5);
-    /* Blue color */
+    width: 300px;
+    padding: 20px;
+    background: linear-gradient(90deg, #00274C, #1E90FF);
+    border-radius: 10px;
     color: white;
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    font-family: Arial, sans-serif;
 }
 
 .card:hover {
-    border-radius: 4 4rem 4rem 4;
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
+
 
 .slide-in {
     position: fixed;
@@ -57,7 +58,7 @@ body {
 
 /* Table styles */
 .table-header {
-    background-color: #0f293ee6;
+    background-color: #0F293E;
     color: white;
 }
 
@@ -82,4 +83,3 @@ body {
     text-decoration: underline;
     cursor: pointer;
 }
-

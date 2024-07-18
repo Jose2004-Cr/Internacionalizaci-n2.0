@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function () {
     const addEventButton = document.getElementById('addEventButton');
     const eventModal = document.getElementById('eventModal');
@@ -9,6 +8,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const tableSearch = document.getElementById('table-search');
 
     let events = [];
+
+    if (!addEventButton || !eventModal || !closeModalButton || !eventForm || !eventsGrid || !eventsTableBody || !tableSearch) {
+        console.error('Uno o más elementos no se encontraron en el DOM.');
+        return;
+    }
 
     addEventButton.addEventListener('click', function () {
         eventModal.classList.remove('hidden');
@@ -24,15 +28,22 @@ document.addEventListener('DOMContentLoaded', function () {
         const eventName = document.getElementById('eventName').value;
         const eventStartDate = document.getElementById('eventStartDate').value;
         const eventEndDate = document.getElementById('eventEndDate').value;
-        const eventLocation = document.getElementById('eventLocation').value;
-        const eventDescription = document.getElementById('eventDescription').value;
+        const eventDirector = document.getElementById('eventDirector').value;
+        const eventModalidad = document.getElementById('eventModalidad').value;
+
+        if (!eventName || !eventStartDate || !eventEndDate || !eventDirector || !eventModalidad) {
+            console.error('Todos los campos del formulario son obligatorios.');
+            return;
+        }
 
         const newEvent = {
             name: eventName,
             startDate: eventStartDate,
             endDate: eventEndDate,
-            location: eventLocation,
-            description: eventDescription
+            director: eventDirector,
+            modalidad: eventModalidad,
+
+
         };
 
         events.push(newEvent);
@@ -41,6 +52,10 @@ document.addEventListener('DOMContentLoaded', function () {
         eventModal.classList.add('hidden');
         eventForm.reset();
     });
+
+
+
+
 
     function displayEvents(events) {
         events.sort((a, b) => new Date(b.endDate) - new Date(a.endDate));
@@ -58,23 +73,27 @@ document.addEventListener('DOMContentLoaded', function () {
             const eventCard = document.createElement('div');
             eventCard.className = 'p-4 rounded shadow-md card';
             eventCard.innerHTML = `
-                <h2 class="mb-2 text-lg font-bold">${event.name}</h2>
-                <p class="mb-1 text-sm">Inicio: ${event.startDate}</p>
-                <p class="mb-1 text-sm">Finalización: ${event.endDate}</p>
-                <p class="mb-2 text-sm">Ubicación: ${event.location}</p>
-                <p class="mb-4 text-sm">${event.description}</p>
-                <a href="/homecartas" class="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-700">Ver</a>
-            `;
+                <h2 class="mb-2 text-yellow-50 text-xl font-bold ">${event.name}</h2>
+                <p class=" text-cyan-300"> ${event.director}</p>
+                <p class="mb-6"> ${event.modalidad}</p>
+                <p class="mt-2 text-sm text-blue-200"> ${event.startDate} Hasta el ${event.endDate}</p>`;
+
+                eventCard.addEventListener('click', function () {
+                    window.location.href = '/homecartas';
+            });
 
             const eventRow = document.createElement('tr');
             eventRow.className = 'bg-white border-b dark:bg-gray-800 dark:border-gray-700';
             eventRow.innerHTML = `
-                <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">${event.name}</td>
+
+                <td class="text-base mb-2">${event.name}</td>
                 <td class="px-6 py-4">${event.startDate}</td>
                 <td class="px-6 py-4">${event.endDate}</td>
-                <td class="px-6 py-4">${event.location}</td>
+                <td class="px-6 py-4">${event.director}</td>
+                <td class="">${event.modalidad}</td>
                 <td class="px-6 py-4"><span class="status ${statusClass}">${statusText}</span></td>
                 <td class="px-6 py-4"><a href="/homecartas" class="details">Ver</a></td>
+
             `;
 
             eventsGrid.appendChild(eventCard);
@@ -88,8 +107,8 @@ document.addEventListener('DOMContentLoaded', function () {
             event.name.toLowerCase().includes(searchValue) ||
             event.startDate.toLowerCase().includes(searchValue) ||
             event.endDate.toLowerCase().includes(searchValue) ||
-            event.location.toLowerCase().includes(searchValue) ||
-            event.description.toLowerCase().includes(searchValue)
+            event.director.toLowerCase().includes(searchValue) ||
+            event.modalidad.toLowerCase().includes(searchValue)
         );
         displayEvents(filteredEvents);
     });
