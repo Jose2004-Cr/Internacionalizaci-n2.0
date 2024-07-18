@@ -13,9 +13,18 @@ return new class extends Migration
     {
         Schema::create('nacionalidads', function (Blueprint $table) {
             $table->id();
-            $table->Integer(Code);
-            $table->String(ISO3);
-            $table->String(Nombre);
+            $table->Integer('Code');
+            $table->String('ISO3');
+            $table->String('Nombre');
+    /**
+     * llamando la tabla users y alicando llave foranea al atributo id
+     */
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')
+            ->references('id')
+            ->on('users')
+            ->onDelete('cascade');
+
             $table->timestamps();
         });
     }

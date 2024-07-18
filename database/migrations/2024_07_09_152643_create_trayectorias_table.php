@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('trayectorias', function (Blueprint $table) {
             $table->id();
+            $table->string('Trayecto_Name');
             $table->timestamps();
         });
     }
