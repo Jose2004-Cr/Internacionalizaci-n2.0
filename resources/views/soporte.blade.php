@@ -1,10 +1,9 @@
-<x-app-layout>
+<x-soportee-layout>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     @vite(['resources/js/soporte.js', 'resources/css/soporte.css'])
-    <x-sider>
-    </x-sider>
+
     <body>
         <div class="container">
             <header>
@@ -94,7 +93,7 @@
 </body>
 
 
-</x-app-layout>
+</x-soportee-layout>
 
 
 

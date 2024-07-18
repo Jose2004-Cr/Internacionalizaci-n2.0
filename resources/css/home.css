@@ -1,26 +1,27 @@
 
 /* Custom styles */
 body {
-    background-color: #f0f4f8;
+    background-color: #ffffff;
 }
 
 .container {
     max-width: 1200px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: #ffffff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
 }
 
 .card {
-    background-color: #1E3A8A;
+    background: linear-gradient(140deg, #0d4598e7, #328cd5);
     /* Blue color */
     color: white;
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 .card:hover {
+    border-radius: 4 4rem 4rem 4;
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }

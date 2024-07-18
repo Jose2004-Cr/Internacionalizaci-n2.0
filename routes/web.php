@@ -1,12 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TermsController;
 use App\Http\Controllers\MapaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CalendarioController;
 use App\Http\Controllers\ReporteController;
 use App\Http\Controllers\SoporteController;
 use App\Http\Controllers\CartasController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,11 +32,12 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-
+    Route::get('/terms', [TermsController::class, 'show'])->name('terms.show');
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/mapa', [MapaController::class, 'index'])->name('mapa');
     Route::get('/calendario', [CalendarioController::class, 'index'])->name('calendario');
     Route::get('/reporte', [ReporteController::class, 'index'])->name('reporte');
     Route::get('/soporte', [SoporteController::class, 'index'])->name('soporte');
     Route::get('/homecartas', [CartasController::class, 'index'])->name('homecartas');
+
 });
