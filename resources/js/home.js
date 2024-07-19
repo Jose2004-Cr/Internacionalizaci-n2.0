@@ -22,43 +22,57 @@ document.addEventListener('DOMContentLoaded', function () {
         eventModal.classList.add('hidden');
     });
 
-    eventForm.addEventListener('submit', function (e) {
+    eventForm.addEventListener('submit', async function (e) {
         e.preventDefault();
 
         const eventName = document.getElementById('eventName').value;
         const eventStartDate = document.getElementById('eventStartDate').value;
         const eventEndDate = document.getElementById('eventEndDate').value;
         const eventDirector = document.getElementById('eventDirector').value;
-        const eventModalidad = document.getElementById('eventModalidad').value;
+        const eventActividad = document.getElementById('eventActividad').value;
+        const eventMovilidad = document.getElementById('eventMovilidad').value;
 
-        if (!eventName || !eventStartDate || !eventEndDate || !eventDirector || !eventModalidad) {
+        if (!eventName || !eventStartDate || !eventEndDate || !eventDirector || !eventActividad || !eventMovilidad) {
             console.error('Todos los campos del formulario son obligatorios.');
             return;
         }
 
         const newEvent = {
-            name: eventName,
-            startDate: eventStartDate,
-            endDate: eventEndDate,
-            director: eventDirector,
-            modalidad: eventModalidad,
-
-
+            Name: eventName,
+            Evento_Inicio: eventStartDate,
+            Evento_Fin: eventEndDate,
+            Director: eventDirector,
+            actividad_id: eventActividad,
+            movilidad_id: eventMovilidad,
         };
 
-        events.push(newEvent);
-        displayEvents(events);
+        try {
+            const response = await fetch('/eventos', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                },
+                body: JSON.stringify(newEvent)
+            });
 
-        eventModal.classList.add('hidden');
-        eventForm.reset();
+            if (!response.ok) {
+                throw new Error('Error al guardar el evento');
+            }
+
+            const savedEvent = await response.json();
+            events.push(savedEvent);
+            displayEvents(events);
+
+            eventModal.classList.add('hidden');
+            eventForm.reset();
+        } catch (error) {
+            console.error('Hubo un problema con la solicitud Fetch:', error);
+        }
     });
 
-
-
-
-
     function displayEvents(events) {
-        events.sort((a, b) => new Date(b.endDate) - new Date(a.endDate));
+        events.sort((a, b) => new Date(b.Evento_Fin) - new Date(a.Evento_Fin));
         const recentEvents = events.slice(0, 6);
 
         eventsGrid.innerHTML = '';
@@ -66,34 +80,32 @@ document.addEventListener('DOMContentLoaded', function () {
 
         recentEvents.forEach(event => {
             const currentDate = new Date().toISOString().split('T')[0];
-            const isActive = new Date(event.endDate) >= new Date(currentDate);
+            const isActive = new Date(event.Evento_Fin) >= new Date(currentDate);
             const statusClass = isActive ? 'active' : 'finalized';
             const statusText = isActive ? 'Activo' : 'Finalizado';
 
             const eventCard = document.createElement('div');
             eventCard.className = 'p-4 rounded shadow-md card';
             eventCard.innerHTML = `
-                <h2 class="mb-2 text-yellow-50 text-xl font-bold ">${event.name}</h2>
-                <p class=" text-cyan-300"> ${event.director}</p>
-                <p class="mb-6"> ${event.modalidad}</p>
-                <p class="mt-2 text-sm text-blue-200"> ${event.startDate} Hasta el ${event.endDate}</p>`;
+                <h2 class="mb-2 text-yellow-50 text-xl font-bold ">${event.Name}</h2>
+                <p class=" text-cyan-300"> ${event.Director}</p>
+                <p class="mb-6"> ${event.movilidad_id}</p>
+                <p class="mt-2 text-sm text-blue-200"> ${event.Evento_Inicio} Hasta el ${event.Evento_Fin}</p>`;
 
-                eventCard.addEventListener('click', function () {
-                    window.location.href = '/homecartas';
+            eventCard.addEventListener('click', function () {
+                window.location.href = '/homecartas';
             });
 
             const eventRow = document.createElement('tr');
             eventRow.className = 'bg-white border-b dark:bg-gray-800 dark:border-gray-700';
             eventRow.innerHTML = `
-
-                <td class="text-base mb-2">${event.name}</td>
-                <td class="px-6 py-4">${event.startDate}</td>
-                <td class="px-6 py-4">${event.endDate}</td>
-                <td class="px-6 py-4">${event.director}</td>
-                <td class="">${event.modalidad}</td>
+                <td class="text-base mb-2">${event.Name}</td>
+                <td class="px-6 py-4">${event.Evento_Inicio}</td>
+                <td class="px-6 py-4">${event.Evento_Fin}</td>
+                <td class="px-6 py-4">${event.Director}</td>
+                <td class="">${event.movilidad_id}</td>
                 <td class="px-6 py-4"><span class="status ${statusClass}">${statusText}</span></td>
                 <td class="px-6 py-4"><a href="/homecartas" class="details">Ver</a></td>
-
             `;
 
             eventsGrid.appendChild(eventCard);
@@ -104,11 +116,11 @@ document.addEventListener('DOMContentLoaded', function () {
     tableSearch.addEventListener('input', function () {
         const searchValue = tableSearch.value.toLowerCase();
         const filteredEvents = events.filter(event =>
-            event.name.toLowerCase().includes(searchValue) ||
-            event.startDate.toLowerCase().includes(searchValue) ||
-            event.endDate.toLowerCase().includes(searchValue) ||
-            event.director.toLowerCase().includes(searchValue) ||
-            event.modalidad.toLowerCase().includes(searchValue)
+            event.Name.toLowerCase().includes(searchValue) ||
+            event.Evento_Inicio.toLowerCase().includes(searchValue) ||
+            event.Evento_Fin.toLowerCase().includes(searchValue) ||
+            event.Director.toLowerCase().includes(searchValue) ||
+            event.movilidad_id.toLowerCase().includes(searchValue)
         );
         displayEvents(filteredEvents);
     });

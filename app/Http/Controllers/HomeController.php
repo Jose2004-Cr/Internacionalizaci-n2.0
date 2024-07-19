@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Movilidad;
+use App\Models\Actividad;
+use App\Models\Evento;
 
 class HomeController extends Controller
 {
@@ -11,54 +14,30 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        $actividades = Actividad::all();
+        $movilidades = Movilidad::all();
+        return view('home', compact('movilidades', 'actividades'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
-    }
+{
+    $validatedData = $request->validate([
+        'Name' => 'required|string|max:255',
+        'Director' => 'required|string|max:255',
+        'Evento_Inicio' => 'required|date',
+        'Evento_Fin' => 'required|date',
+        'actividad_id' => 'required|exists:actividads,id',
+        'movilidad_id' => 'required|exists:movilidads,id',
+    ]);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
+    $evento = new Evento();
+    $evento->fill($validatedData);
+    $evento->save();
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
+    return response()->json($evento, 201); // Retornar el evento guardado en formato JSON con código de estado 201
+}
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
 }

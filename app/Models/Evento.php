@@ -11,6 +11,15 @@ class Evento extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'Name',
+        'Director',
+        'Evento_Inicio',
+        'Evento_Fin',
+        'actividad_id',
+        'movilidad_id',
+    ];
+
     public function Asistencia(): HasMany
     {
         return $this->hasMany('App\Models\Asistencia');

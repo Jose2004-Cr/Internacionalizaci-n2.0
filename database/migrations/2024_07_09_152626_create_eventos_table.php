@@ -15,35 +15,14 @@ return new class extends Migration
             $table->id();
             $table->string('Name');
             $table->string('Director');
-            $table->string('Evento_Inicio');
-            $table->string('Evento_Fin');
-            $table->string('Actividad');
-            /**
-             * llamando la tabla asistencia y aplicando llave foranea al atributo id
-             */
-            $table->unsignedBigInteger('asistencia_id');
-            $table->foreign('asistencia_id')
-                ->references('id')
-                ->on('asistencias')
-                ->onDelete('cascade');
-            /**
-             * llamando la tabla actividad y aplicando llave foranea al atributo id
-             */
+            $table->date('Evento_Inicio');
+            $table->date('Evento_Fin');
             $table->unsignedBigInteger('actividad_id');
-            $table->foreign('actividad_id')
-                ->references('id')
-                ->on('actividads')
-                ->onDelete('cascade');
-            /**
-             * llamando la tabla movilidad y aplicando llave foranea al atributo id
-             */
             $table->unsignedBigInteger('movilidad_id');
-            $table->foreign('movilidad_id')
-                ->references('id')
-                ->on('movilidads')
-                ->onDelete('cascade');
-
             $table->timestamps();
+
+            $table->foreign('actividad_id')->references('id')->on('actividads')->onDelete('cascade');
+            $table->foreign('movilidad_id')->references('id')->on('movilidads')->onDelete('cascade');
         });
     }
 

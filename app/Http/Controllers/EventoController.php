@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Evento;
 use Illuminate\Http\Request;
 
+
 class EventoController extends Controller
 {
     /**
@@ -28,7 +29,9 @@ class EventoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $evento = new Evento();
+        $evento->fill($request->all());
+        $evento->save();
     }
 
     /**

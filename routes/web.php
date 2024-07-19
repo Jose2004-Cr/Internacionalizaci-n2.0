@@ -8,6 +8,7 @@ use App\Http\Controllers\CalendarioController;
 use App\Http\Controllers\ReporteController;
 use App\Http\Controllers\SoporteController;
 use App\Http\Controllers\CartasController;
+use App\Http\Controllers\EventoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,10 +21,6 @@ use App\Http\Controllers\CartasController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -32,6 +29,7 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
     Route::get('/terms', [TermsController::class, 'show'])->name('terms.show');
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/mapa', [MapaController::class, 'index'])->name('mapa');
@@ -40,4 +38,5 @@ Route::middleware([
     Route::get('/soporte', [SoporteController::class, 'index'])->name('soporte');
     Route::get('/homecartas', [CartasController::class, 'index'])->name('homecartas');
 
+    Route::post('/eventos', [HomeController::class, 'store'])->name('eventos.store'); // Verifica que esta ruta esté correcta
 });
