@@ -67,7 +67,7 @@
                         <label for="eventActividad" class="block mb-1 font-semibold">Actividad</label>
                         <select id="eventActividad" name="eventActividad" class="w-full p-2 border rounded-md">
                             @foreach ($actividades as $actividad)
-                                <option value="{{ $actividad->id }}">{{ $actividad-> Actividad_Name}}</option>
+                                <option value="{{ $actividad->id }}">{{ $actividad->nombre }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -75,7 +75,7 @@
                         <label for="eventMovilidad" class="block mb-1 font-semibold">Movilidad</label>
                         <select id="eventMovilidad" name="eventMovilidad" class="w-full p-2 border rounded-md">
                             @foreach ($movilidades as $movilidad)
-                                <option value="{{ $movilidad->id }}">{{ $movilidad->Mov_Name }}</option>
+                                <option value="{{ $movilidad->id }}">{{ $movilidad->nombre }}</option>
                             @endforeach
                         </select>
                     </div>
