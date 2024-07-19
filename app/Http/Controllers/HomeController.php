@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Evento;
+use BaconQrCode\Renderer\RendererStyle\Fill;
 
 class HomeController extends Controller
 {
@@ -27,7 +29,14 @@ class HomeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $evento = new Evento();
+
+        // Llenar el modelo con los datos del request usando el método `fill`
+        $evento->fill($request->all());
+
+        // Guardar el evento en la base de datos
+        $evento->save();
     }
 
     /**

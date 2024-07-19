@@ -40,4 +40,6 @@ Route::middleware([
     Route::get('/soporte', [SoporteController::class, 'index'])->name('soporte');
     Route::get('/homecartas', [CartasController::class, 'index'])->name('homecartas');
 
+
+
 });
