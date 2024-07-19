@@ -21,6 +21,10 @@ use App\Http\Controllers\EventoController;
 |
 */
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -38,5 +42,6 @@ Route::middleware([
     Route::get('/soporte', [SoporteController::class, 'index'])->name('soporte');
     Route::get('/homecartas', [CartasController::class, 'index'])->name('homecartas');
 
-    Route::post('/eventos', [HomeController::class, 'store'])->name('eventos.store'); // Verifica que esta ruta esté correcta
+    Route::post('/eventos', [HomeController::class, 'store'])->name('eventos.store');
+
 });

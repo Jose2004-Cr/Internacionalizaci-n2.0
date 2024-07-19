@@ -39,7 +39,7 @@ class EventoController extends Controller
      */
     public function show(Evento $evento)
     {
-        //
+
     }
 
     /**

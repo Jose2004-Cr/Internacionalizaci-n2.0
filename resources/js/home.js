@@ -71,6 +71,20 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    async function fetchEvents() {
+        try {
+            const response = await fetch('/eventos');
+            if (!response.ok) {
+                throw new Error('Error al cargar los eventos');
+            }
+            const data = await response.json();
+            events = data;
+            displayEvents(events);
+        } catch (error) {
+            console.error('Hubo un problema al cargar los eventos:', error);
+        }
+    }
+
     function displayEvents(events) {
         events.sort((a, b) => new Date(b.Evento_Fin) - new Date(a.Evento_Fin));
         const recentEvents = events.slice(0, 6);
@@ -125,6 +139,6 @@ document.addEventListener('DOMContentLoaded', function () {
         displayEvents(filteredEvents);
     });
 
-    // Initial display of events
-    displayEvents(events);
+    // Initial fetch and display of events
+    fetchEvents();
 });

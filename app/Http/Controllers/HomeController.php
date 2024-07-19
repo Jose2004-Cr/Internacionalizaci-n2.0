@@ -16,28 +16,38 @@ class HomeController extends Controller
     {
         $actividades = Actividad::all();
         $movilidades = Movilidad::all();
-        return view('home', compact('movilidades', 'actividades'));
+        $eventos = Evento::all();  // Obtener los eventos
+
+        return view('home', compact(
+            'movilidades',
+            'actividades',
+            'eventos'
+        ));
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-{
-    $validatedData = $request->validate([
-        'Name' => 'required|string|max:255',
-        'Director' => 'required|string|max:255',
-        'Evento_Inicio' => 'required|date',
-        'Evento_Fin' => 'required|date',
-        'actividad_id' => 'required|exists:actividads,id',
-        'movilidad_id' => 'required|exists:movilidads,id',
-    ]);
+    {
+        $validatedData = $request->validate([
+            'Name' => 'required|string|max:255',
+            'Director' => 'required|string|max:255',
+            'Evento_Inicio' => 'required|date',
+            'Evento_Fin' => 'required|date',
+            'actividad_id' => 'required|exists:actividads,id',
+            'movilidad_id' => 'required|exists:movilidads,id',
+        ]);
 
-    $evento = new Evento();
-    $evento->fill($validatedData);
-    $evento->save();
+        $evento = new Evento();
+        $evento->fill($validatedData);
 
-    return response()->json($evento, 201); // Retornar el evento guardado en formato JSON con código de estado 201
-}
+        try {
+            $evento->save();
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Error al guardar el evento: ' . $e->getMessage()], 500);
+        }
 
+        return response()->json($evento, 201);
+    }
 }
