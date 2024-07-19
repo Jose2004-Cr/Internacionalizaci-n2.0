@@ -36,7 +36,7 @@
                         <div class="px-8 pt-6 pb-8 mb-4 bg-white rounded">
                             <div class="">
                                 <x-label for="email" value="{{ __('Identificacion') }}" />
-                                <x-input id="email" class="block w-full mt-1" type="email" name="email"
+                                <x-input id="text" class="block w-full mt-1" type="text" name="documento"
                                     :value="old('email')" required autofocus autocomplete="username" />
                             </div>
                             <div class="mt-8">
@@ -56,11 +56,17 @@
                                         href="{{ route('password.request') }}">
                                         {{ __('Olvidaste la Contraseña?') }}
                                     </a>
+                                    <a class="mt-2 text-sm text-gray-600 underline rounded-md hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 md:mt-0 md:ms-4"
+                                    href="{{ route('register') }}">
+                                    {{ __('No tienes cuenta; Regístrate') }}
+                                </a>
                                 @endif
                                 <x-button class="mt-2 md:mt-0 md:ms-4">
                                     {{ __('Ingresar') }}
                                 </x-button>
+
                             </div>
+
                         </div>
                     </div>
                 </form>

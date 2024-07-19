@@ -31,6 +31,8 @@ class UserFactory extends Factory
             // 'profile_photo_path' => null,
             // 'current_team_id' => null,
             'name' => 'Admin',
+            'documento' => 1,
+
             'email' => 'admin@hermes.com',
             'password' => bcrypt(123456789),
         ];
