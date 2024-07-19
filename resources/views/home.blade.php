@@ -88,6 +88,7 @@
                         <select
                             class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-200"
                             name="eventModalidad" id="eventModalidad">
+                            
                             <option value="" disabled selected>Seleccione un tipo de movilidad</option>
                             <option value="Entrante virtual">Entrante virtual</option>
                             <option value="Entrante presencial">Entrante presencial</option>
