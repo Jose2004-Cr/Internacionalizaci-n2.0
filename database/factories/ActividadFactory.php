@@ -17,7 +17,7 @@ class ActividadFactory extends Factory
     public function definition(): array
     {
         return [
-            'Actividad_Name' => $this->faker->unique->randomElement((['Ruta', 'Ponencia', 'Espejo', 'Catedra abierta', 'Congreso']))
+            'nombre' => $this->faker->unique->randomElement((['Ruta', 'Ponencia', 'Espejo', 'Catedra abierta', 'Congreso']))
         ];
     }
 }

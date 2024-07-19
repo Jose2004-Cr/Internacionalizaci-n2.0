@@ -17,7 +17,7 @@ class MovilidadFactory extends Factory
     public function definition(): array
     {
         return [
-            'Mov_Name' => $this->faker->unique->randomElement(['Entrante Virtual', 'Saliente Virtual', 'Entrante Perencial', 'Saliente Presencial'])
+            'nombre' => $this->faker->unique->randomElement(['Entrante Virtual', 'Saliente Virtual', 'Entrante Perencial', 'Saliente Presencial'])
         ];
     }
 }
