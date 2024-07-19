@@ -43,7 +43,9 @@
                                         <th scope="col" class="px-6 py-3">Fecha de Inicio</th>
                                         <th scope="col" class="px-6 py-3">Fecha de Finalización</th>
                                         <th scope="col" class="px-6 py-3">Director</th>
-                                        <th scope="col" class="px-6 py-3">Actividad</th>
+                                        <th scope="col" class="px-6 py-3">@foreach ($Actividad as $actividades)
+                                            {{ $actividades->Actividad_name }}
+                                        @endforeach</th>
                                         <th scope="col" class="px-6 py-3">Movilidad</th>
                                         <th scope="col" class="px-6 py-3">Estado</th>
                                         <th scope="col" class="px-6 py-3">Detalles</th>
