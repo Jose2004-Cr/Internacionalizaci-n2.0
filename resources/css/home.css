@@ -1,6 +1,7 @@
 /* Custom styles */
 body {
     background-color: #ffffff;
+    font-family: Arial, sans-serif;
 }
 
 .container {
@@ -18,14 +19,12 @@ body {
     background: linear-gradient(90deg, #00274C, #1E90FF);
     border-radius: 10px;
     color: white;
-    font-family: Arial, sans-serif;
 }
 
 .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
-
 
 .slide-in {
     position: fixed;
@@ -82,4 +81,42 @@ body {
     color: #1E40AF;
     text-decoration: underline;
     cursor: pointer;
+}
+
+.table-body tr {
+    transition: background-color 0.3s ease;
+}
+
+.table-body tr:hover {
+    background-color: #f1f5f9;
+}
+
+.table-body td, .table-body th {
+    padding: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+.table-body th {
+    background-color: #e2e8f0;
+    color: #1a202c;
+}
+
+.table-body td {
+    background-color: #fff;
+    color: #4a5568;
+}
+
+#table-search {
+    border: 1px solid #e2e8f0;
+    padding: 8px;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+}
+
+#table-search:focus {
+    border-color: #0F293E;
+    outline: none;
 }

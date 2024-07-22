@@ -43,6 +43,10 @@ Route::middleware([
     Route::get('/homecartas', [CartasController::class, 'index'])->name('homecartas');
 
     Route::post('/eventos', [HomeController::class, 'store'])->name('eventos.store');
-    
+    Route::get('/homecartas/{id}', [EventoController::class, 'show']);
+
+
+
+
 
 });

@@ -29,25 +29,23 @@ class HomeController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        $validatedData = $request->validate([
-            'Name' => 'required|string|max:255',
-            'Director' => 'required|string|max:255',
-            'Evento_Inicio' => 'required|date',
-            'Evento_Fin' => 'required|date',
-            'actividad_id' => 'required|exists:actividads,id',
-            'movilidad_id' => 'required|exists:movilidads,id',
-        ]);
+{
+    $validatedData = $request->validate([
+        'Name' => 'required|string|max:255',
+        'Director' => 'required|string|max:255',
+        'Evento_Inicio' => 'required|date',
+        'Evento_Fin' => 'required|date',
+        'actividad_id' => 'required|exists:actividads,id',
+        'movilidad_id' => 'required|exists:movilidads,id',
+    ]);
 
-        $evento = new Evento();
-        $evento->fill($validatedData);
-
-        try {
-            $evento->save();
-        } catch (\Exception $e) {
-            return response()->json(['error' => 'Error al guardar el evento: ' . $e->getMessage()], 500);
-        }
-
-        return response()->json($evento, 201);
+    try {
+        $evento = Evento::create($validatedData);
+    } catch (\Exception $e) {
+        return response()->json(['error' => 'Error al guardar el evento: ' . $e->getMessage()], 500);
     }
+
+    return response()->json($evento, 201);
+}
+
 }

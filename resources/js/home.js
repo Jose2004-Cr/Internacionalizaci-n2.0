@@ -26,11 +26,11 @@ document.addEventListener('DOMContentLoaded', function () {
         e.preventDefault();
 
         const eventName = document.getElementById('eventName').value;
-        const eventStartDate = document.getElementById('eventStartDate').value;
-        const eventEndDate = document.getElementById('eventEndDate').value;
         const eventDirector = document.getElementById('eventDirector').value;
         const eventActividad = document.getElementById('eventActividad').value;
         const eventMovilidad = document.getElementById('eventMovilidad').value;
+        const eventStartDate = document.getElementById('eventStartDate').value;
+        const eventEndDate = document.getElementById('eventEndDate').value;
 
         if (!eventName || !eventStartDate || !eventEndDate || !eventDirector || !eventActividad || !eventMovilidad) {
             console.error('Todos los campos del formulario son obligatorios.');
@@ -102,12 +102,14 @@ document.addEventListener('DOMContentLoaded', function () {
             eventCard.className = 'p-4 rounded shadow-md card';
             eventCard.innerHTML = `
                 <h2 class="mb-2 text-yellow-50 text-xl font-bold ">${event.Name}</h2>
-                <p class=" text-cyan-300"> ${event.Director}</p>
+                <p class="text-cyan-300"> ${event.Director}</p>
                 <p class="mb-6"> ${event.movilidad_id}</p>
-                <p class="mt-2 text-sm text-blue-200"> ${event.Evento_Inicio} Hasta el ${event.Evento_Fin}</p>`;
+                <p class="mt-2 text-sm text-blue-200"> ${event.Evento_Inicio} Hasta el ${event.Evento_Fin}</p>
+            `;
 
+            // Añadir un listener para redirigir al hacer clic en la tarjeta
             eventCard.addEventListener('click', function () {
-                window.location.href = '/homecartas';
+                window.location.href = `/homecartas/${event.id}`;
             });
 
             const eventRow = document.createElement('tr');
@@ -119,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <td class="px-6 py-4">${event.Director}</td>
                 <td class="">${event.movilidad_id}</td>
                 <td class="px-6 py-4"><span class="status ${statusClass}">${statusText}</span></td>
-                <td class="px-6 py-4"><a href="/homecartas" class="details">Ver</a></td>
+                <td class="px-6 py-4"><a href="/homecartas/${event.id}" class="details">Ver</a></td>
             `;
 
             eventsGrid.appendChild(eventCard);

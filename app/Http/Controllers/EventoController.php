@@ -37,10 +37,21 @@ class EventoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Evento $evento)
-    {
+    // En tu EventController o el controlador que maneja la vista
+    public function show($id)
+{
+    $evento = Evento::find($id);
 
+    if (!$evento) {
+        abort(404); // Manejar el caso en el que el evento no existe
     }
+
+    return view('homecartas', ['evento' => $evento]);
+}
+
+
+
+
 
     /**
      * Show the form for editing the specified resource.
