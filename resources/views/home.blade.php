@@ -40,8 +40,8 @@
                                     </tr>
                                 </thead>
                                 <tbody id="eventsTableBody">
-                                    @foreach ($eventos as $event)
-                                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                        @foreach ($eventos as $event)
+                                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                             <td class="mb-2 text-base">{{ $event->Name }}</td>
                                             <td class="px-6 py-4">{{ $event->Evento_Inicio }}</td>
                                             <td class="px-6 py-4">{{ $event->Evento_Fin }}</td>
