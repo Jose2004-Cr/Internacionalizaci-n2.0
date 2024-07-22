@@ -23,7 +23,7 @@
                     </div>
                     <div class="mt-12">
                         <h2 class="text-xl font-bold text-gray-800">Eventos Registrados</h2>
-                        <div class="overflow-x-auto">
+                        <div class="table-container">
                             <div class="flex items-center justify-between pb-4">
                                 <input type="text" id="table-search" class="block p-2 border rounded-md w-80" placeholder="Buscar evento...">
                             </div>

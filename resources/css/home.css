@@ -14,16 +14,35 @@ body {
 }
 
 .card {
-    width: 300px;
-    padding: 20px;
-    background: linear-gradient(90deg, #00274C, #1E90FF);
+    width: 300px; /* Adjusted width to make it narrow */
+    padding: 0px 0px; /* Adjusted padding for a more compact look */
+    background: linear-gradient(90deg, #163c5f, #08539e);
     border-radius: 10px;
     color: white;
+    margin: 1px 0; /* Added margin for spacing between cards */
+    display: flex;
+    flex-direction: column;
 }
 
 .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+.card h2 {
+    font-size: 1.1em; /* Adjusted for better visual hierarchy */
+    margin-bottom: 1px;
+}
+
+.card p {
+    font-size: 1em;
+    margin: 0px 0;
+}
+
+.card .event-date {
+    font-size: 0.9em;
+    opacity: 0.8; /* Slightly lighter for less emphasis */
 }
 
 .slide-in {
@@ -57,7 +76,7 @@ body {
 
 /* Table styles */
 .table-header {
-    background-color: #0F293E;
+    background-color: #1f374a;
     color: white;
 }
 
@@ -98,7 +117,7 @@ body {
 
 .table-body th {
     background-color: #e2e8f0;
-    color: #1a202c;
+    color: #232d41;
 }
 
 .table-body td {
