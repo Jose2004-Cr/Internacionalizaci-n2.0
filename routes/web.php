@@ -37,12 +37,13 @@ Route::middleware([
     Route::get('/terms', [TermsController::class, 'show'])->name('terms.show');
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/mapa', [MapaController::class, 'index'])->name('mapa');
-    Route::get('/calendario', [CalendarioController::class, 'index'])->name('calendario');
+    Route::get('/calendario', [CalendarioController::class, 'index'])->name('calendario.index');
     Route::get('/reporte', [ReporteController::class, 'index'])->name('reporte');
     Route::get('/soporte', [SoporteController::class, 'index'])->name('soporte');
     Route::get('/homecartas', [CartasController::class, 'index'])->name('homecartas');
 
     Route::post('/eventos', [HomeController::class, 'store'])->name('eventos.store');
-    
+    Route::get('/calendario/eventos', [CalendarioController::class,'mostrarPorFecha'])->name('calendario.eventos');
+
 
 });
