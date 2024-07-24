@@ -195,12 +195,12 @@
 
                     let eventHtml = '';
                     dayEvents.forEach(event => {
-                        eventHtml += `<div class="mt-1 overflow-hidden bg-${event.event_theme}-500 rounded-lg shadow-md cursor-pointer event"
+                        eventHtml += `<div class=" card2 mt-1 overflow-hidden bg-${event.event_theme}-500 rounded-lg shadow-md cursor-pointer event"
                                         data-title="${event.event_title}"
                                         data-date="${event.hora}"
                                         data-note="${event.nota}">
                                         <p class="text-sm font-bold text-white truncate">${event.event_title}</p>
-                                        <p class="text-xs text-white truncate">${event.nota}</p>
+                                        <p class="text-xs text-white truncate ">${event.nota}</p>
                                     </div>`;
                     });
 

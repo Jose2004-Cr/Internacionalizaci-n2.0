@@ -3,22 +3,37 @@
 }
 .calendar-container {
     height: 700px;
-    overflow-y:auto;
+    overflow-y: auto;
     padding-left: 8rem;
-}
-.calendar-grid {
-    height: 700px;
-    margin-bottom: -1px;
-    position: central;
-    z-index: 1;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
-.calendar-grid > div {
-    border-bottom: 1px solid #020523;
-    box-sizing: border-box;
-    height: 100px;
+#calendar-grid {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
 }
+
+#calendar-grid > div {
+    width: calc(100% / 7); /* Ancho de cada celda para que haya 7 celdas por fila */
+    height: 100px; /* Altura fija de cada celda */
+    box-sizing: border-box; /* Asegura que el padding y el border se incluyan en el ancho y alto total */
+    display: flex;
+    align-items: flex-start; /* Asegura que el contenido de la celda comience desde la parte superior */
+}
+
+#calendar-grid .event-marker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20px; /* Altura fija del evento */
+    background-color: var(--event-color, blue); /* Usa una variable CSS para el color del evento */
+    color: white;
+    border-radius: 3px;
+    margin-top: 5px; /* Espacio entre el borde superior de la celda y el evento */
+}
+
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
@@ -120,4 +135,20 @@ ul {
 
 li {
     width: 100%;
+}
+
+
+
+.card2 {
+
+    padding: 20px;
+    background: linear-gradient(90deg, #00274C, #1E90FF);
+    border-radius: 10px;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.card2:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
