@@ -66,98 +66,7 @@
             </div>
         </div>
 
-        <div id="modal" style="background-color: rgba(0, 0, 0, 0.8)"
-            class="fixed top-0 bottom-0 left-0 right-0 z-40 hidden w-full h-full">
-            <div class="absolute relative left-0 right-0 max-w-xl p-4 mx-auto mt-24 overflow-hidden">
-                <div class="absolute top-0 right-0 inline-flex items-center justify-center w-10 h-10 text-gray-500 bg-white rounded-full shadow cursor-pointer hover:text-gray-800"
-                    id="close-modal">
-                    <svg class="w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path
-                            d="M16.192 6.344L11.949 10.586 7.707 6.344 6.293 7.758 10.535 12 6.293 16.242 7.707 17.656 11.949 13.414 16.192 17.656 17.606 16.242 13.364 12 17.606 7.758z" />
-                    </svg>
-                </div>
 
-                <div class="block w-full p-8 overflow-hidden bg-white rounded-lg shadow">
-
-                    <h2 class="pb-2 mb-6 text-2xl font-bold text-gray-800 border-b">Agregar Nota</h2>
-
-                    <div class="mb-4">
-                        <label class="block mb-1 text-sm font-bold tracking-wide text-gray-800">Título</label>
-                        <input id="event-title"
-                            class="w-full px-4 py-2 leading-tight text-gray-700 bg-gray-200 border-2 border-gray-200 rounded-lg appearance-none focus:outline-none focus:bg-white focus:border-blue-500"
-                            type="text">
-                    </div>
-
-                    <div class="mb-4">
-                        <label class="block mb-1 text-sm font-bold tracking-wide text-gray-800">Fecha del Evento</label>
-                        <input id="event-date"
-                            class="w-full px-4 py-2 leading-tight text-gray-700 bg-gray-200 border-2 border-gray-200 rounded-lg appearance-none focus:outline-none focus:bg-white focus:border-blue-500"
-                            type="text" readonly>
-                    </div>
-
-                    <div class="mb-4">
-                        <label class="block mb-1 text-sm font-bold tracking-wide text-gray-800">Hora</label>
-                        <input id="event-time"
-                            class="w-full px-4 py-2 leading-tight text-gray-700 bg-gray-200 border-2 border-gray-200 rounded-lg appearance-none focus:outline-none focus:bg-white focus:border-blue-500"
-                            type="time">
-                    </div>
-
-                    <div class="mb-4">
-                        <label class="block mb-1 text-sm font-bold tracking-wide text-gray-800">Nota</label>
-                        <textarea id="event-note" class="w-full px-4 py-2 leading-tight text-gray-700 bg-gray-200 border-2 border-gray-200 rounded-lg appearance-none focus:outline-none focus:bg-white focus:border-blue-500"></textarea>
-                        <p id="character-count">200 caracteres restantes</p>
-
-                        <script>
-                            function updateCharacterCount() {
-                                const textarea = document.getElementById('event-note');
-                                const characterCountDisplay = document.getElementById('character-count');
-                                const maxCharacters = 200;
-                                const currentLength = textarea.value.length;
-
-                                if (currentLength > maxCharacters) {
-                                    textarea.value = textarea.value.substring(0, maxCharacters);
-                                }
-
-                                const charactersRemaining = maxCharacters - textarea.value.length;
-                                characterCountDisplay.textContent = charactersRemaining + ' caracteres restantes';
-
-                                if (charactersRemaining < 0) {
-                                    characterCountDisplay.style.color = 'red';
-                                } else {
-                                    characterCountDisplay.style.color = '';
-                                }
-                            }
-
-                            function resetCharacterCount() {
-                                const textarea = document.getElementById('event-note');
-                                const characterCountDisplay = document.getElementById('character-count');
-
-                                textarea.value = '';
-                                characterCountDisplay.textContent = '200 caracteres restantes';
-                                characterCountDisplay.style.color = '';
-                            }
-
-                            document.getElementById('event-note').addEventListener('input', updateCharacterCount);
-                            document.addEventListener('DOMContentLoaded', resetCharacterCount);
-                        </script>
-                    </div>
-
-                    <div class="inline-block w-64 mb-4">
-                        <label class="block mb-1 text-sm font-bold tracking-wide text-gray-800">Selecciona un tema</label>
-                        <div class="relative">
-                            <select id="event-theme"
-                                class="block w-full px-4 py-2 pr-8 leading-tight text-gray-700 bg-gray-200 border-2 border-gray-200 rounded-lg appearance-none hover:border-gray-500 focus:outline-none focus:bg-white focus:border-blue-500">
-                                <option value="blue">Azul</option>
-                                <option value="red">Rojo</option>
-                                <option value="green">Verde</option>
-                                <option value="yellow">Amarillo</option>
-                            </select>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
 
         <script>
             const events = {!! $eventos !!};
@@ -204,6 +113,30 @@
                                     </div>`;
                     });
 
+
+
+                    document.addEventListener('DOMContentLoaded', function() {
+                        // Selecciona todas las cartas con la clase 'event'
+                        const eventCards = document.querySelectorAll('.event');
+
+                        // Añade un evento de clic a cada carta
+                        eventCards.forEach(card => {
+                            card.addEventListener('click', function() {
+                                // Obtén los datos de la carta
+                                const title = this.getAttribute('data-title');
+                                const date = this.getAttribute('data-date');
+                                const note = this.getAttribute('data-note');
+
+                                // Construye la URL para redirigir
+                                const url = `/tu-vista.blade.php?title=${encodeURIComponent(title)}&date=${encodeURIComponent(date)}&note=${encodeURIComponent(note)}`;
+
+                                // Redirige a la nueva URL
+                                window.location.href = url;
+                            });
+                        });
+                    });
+
+
                     days += `<div class="relative w-[14.28%] h-20 px-2 pt-2 border-t border-r">
                                 <div class="absolute bottom-1 right-1 w-full ${isToday ? 'text-blue-500' : 'text-gray-500'}">${i}</div>
                                 ${eventHtml}
@@ -243,9 +176,7 @@
                 renderDate();
             });
 
-            document.getElementById('close-modal').addEventListener('click', () => {
-                document.getElementById('modal').style.display = 'none';
-            });
+
 
             renderDate();
         </script>

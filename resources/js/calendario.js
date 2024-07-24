@@ -102,79 +102,7 @@ function init() {
                 dateCell.classList.add('bg-blue-100');
             }
 
-            dateCell.addEventListener('click', function () {
-                document.getElementById('modal').classList.remove('hidden');
-                document.getElementById('event-date').value = currentDate.toLocaleDateString('es-ES', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                });
-
-                const existingEvent = events.find(e => e.hora.toDateString() === currentDate.toDateString());
-                if (existingEvent) {
-                    document.getElementById('event-title').value = existingEvent.event_title;
-                    document.getElementById('event-theme').value = existingEvent.event_theme;
-                    document.getElementById('event-note').value = existingEvent.nota;
-                    document.getElementById('delete-button').style.display = 'inline-block';
-                    document.getElementById('save-button').textContent = 'Actualizar Evento';
-                } else {
-                    document.getElementById('event-title').value = '';
-                    document.getElementById('event-theme').value = 'blue';
-                    document.getElementById('event-note').value = '';
-                    document.getElementById('delete-button').style.display = 'none';
-                    document.getElementById('save-button').textContent = 'Guardar Evento';
-                }
-
-                document.getElementById('save-button').onclick = function () {
-                    const eventTitle = document.getElementById('event-title').value;
-                    const eventTheme = document.getElementById('event-theme').value;
-                    const eventNote = document.getElementById('event-note').value;
-                    if (existingEvent) {
-                        existingEvent.event_title = eventTitle;
-                        existingEvent.event_theme = eventTheme;
-                        existingEvent.nota = eventNote;
-                    } else {
-                        events.push({
-                            hora: currentDate,
-                            event_title: eventTitle,
-                            event_theme: eventTheme,
-                            nota: eventNote
-                        });
-                    }
-                    renderCalendar(currentMonth, currentYear);
-                    document.getElementById('modal').classList.add('hidden');
-                };
-
-                document.getElementById('delete-button').onclick = function () {
-                    if (existingEvent) {
-                        events = events.filter(e => e.hora.toDateString() !== currentDate.toDateString());
-                        renderCalendar(currentMonth, currentYear);
-                        document.getElementById('modal').classList.add('hidden');
-                    }
-                };
-
-                document.getElementById('edit-button').onclick = function () {
-                    if (existingEvent) {
-                        document.getElementById('event-title').value = existingEvent.event_title;
-                        document.getElementById('event-theme').value = existingEvent.event_theme;
-                        document.getElementById('event-note').value = existingEvent.nota;
-                        document.getElementById('delete-button').style.display = 'inline-block';
-                        document.getElementById('save-button').textContent = 'Actualizar Evento';
-                    }
-                };
-            });
-
-            calendarGrid.appendChild(dateCell);
         }
     }
-
-    document.getElementById('close-modal').addEventListener('click', function () {
-        document.getElementById('modal').classList.add('hidden');
-    });
-
-    document.getElementById('cancel-button').addEventListener('click', function () {
-        document.getElementById('modal').classList.add('hidden');
-    });
 }
-
 document.addEventListener('DOMContentLoaded', init);

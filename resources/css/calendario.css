@@ -1,44 +1,7 @@
-[x-cloak] {
-    display: none;
-}
-.calendar-container {
-    height: 700px;
-    overflow-y: auto;
-    padding-left: 8rem;
-    display: flex;
-    flex-direction: column;
-}
-
-#calendar-grid {
-    display: flex;
-    flex-wrap: wrap;
-    flex: 1;
-}
-
-#calendar-grid > div {
-    width: calc(100% / 7); /* Ancho de cada celda para que haya 7 celdas por fila */
-    height: 100px; /* Altura fija de cada celda */
-    box-sizing: border-box; /* Asegura que el padding y el border se incluyan en el ancho y alto total */
-    display: flex;
-    align-items: flex-start; /* Asegura que el contenido de la celda comience desde la parte superior */
-}
-
-#calendar-grid .event-marker {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 20px; /* Altura fija del evento */
-    background-color: var(--event-color, blue); /* Usa una variable CSS para el color del evento */
-    color: white;
-    border-radius: 3px;
-    margin-top: 5px; /* Espacio entre el borde superior de la celda y el evento */
-}
-
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-
 body {
     font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 .sidebar {
@@ -137,18 +100,108 @@ li {
     width: 100%;
 }
 
-
-
-.card2 {
-
-    padding: 20px;
-    background: linear-gradient(90deg, #00274C, #1E90FF);
-    border-radius: 10px;
-    color: white;
-    font-family: Arial, sans-serif;
+.calendar-container {
+    height: 1000px;
+    overflow-y: auto;
+    padding-left: 8rem;
+    padding-top: 0rem; /* Espacio en la parte superior */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
 }
 
-.card2:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: 0 1rem;
+}
+
+#calendar-grid {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%; /* Asegura que ocupe todo el espacio disponible */
+    box-sizing: border-box;
+}
+
+#calendar-grid > div {
+    width: calc(100% / 7); /* Ancho de cada celda para que haya 7 celdas por fila */
+    height: calc((100% - 1rem) / 5); /* Altura calculada para llenar el contenedor */
+    box-sizing: border-box; /* Asegura que el padding y el border se incluyan en el ancho y alto total */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Alinea los números en la parte superior */
+    padding: 0.5rem;
+    border: 1px solid #ddd; /* Añade un borde para que se vean claramente las celdas */
+}
+
+#calendar-grid .event-marker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20px; /* Altura fija del evento */
+    background-color: var(--event-color, blue); /* Usa una variable CSS para el color del evento */
+    color: white;
+    border-radius: 3px;
+    margin-top: 10px; /* Espacio entre el borde superior de la celda y el evento */
+}
+
+#calendar-grid div {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #333; /* Color de los números del calendario */
+}
+
+#modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+}
+
+.modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+textarea {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#character-count {
+    margin-top: 0.5rem;
+}
+
+.hidden {
+    display: none;
+}
+
+#note-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#note-modal .bg-white {
+    max-width: 500px;
 }
