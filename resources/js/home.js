@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
     const addEventButton = document.getElementById('addEventButton');
     const eventModal = document.getElementById('eventModal');
     const closeModalButton = document.getElementById('closeModalButton');
@@ -6,23 +6,19 @@ document.addEventListener('DOMContentLoaded', function () {
     const eventsGrid = document.getElementById('eventsGrid');
     const eventsTableBody = document.getElementById('eventsTableBody');
     const tableSearch = document.getElementById('table-search');
+    const paginationContainer = document.getElementById('pagination');
 
     let events = [];
 
-    if (!addEventButton || !eventModal || !closeModalButton || !eventForm || !eventsGrid || !eventsTableBody || !tableSearch) {
-        console.error('Uno o más elementos no se encontraron en el DOM.');
-        return;
-    }
-
-    addEventButton.addEventListener('click', function () {
+    addEventButton.addEventListener('click', () => {
         eventModal.classList.remove('hidden');
     });
 
-    closeModalButton.addEventListener('click', function () {
+    closeModalButton.addEventListener('click', () => {
         eventModal.classList.add('hidden');
     });
 
-    eventForm.addEventListener('submit', async function (e) {
+    eventForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         const eventName = document.getElementById('eventName').value;
@@ -107,19 +103,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 <p class="mt-2 text-sm text-blue-200"> ${event.Evento_Inicio} Hasta el ${event.Evento_Fin}</p>
             `;
 
-            // Añadir un listener para redirigir al hacer clic en la tarjeta
-            eventCard.addEventListener('click', function () {
+            // Add a click listener to redirect when clicking the card
+            eventCard.addEventListener('click', () => {
                 window.location.href = `/homecartas/${event.id}`;
             });
 
             const eventRow = document.createElement('tr');
             eventRow.className = 'bg-white border-b dark:bg-gray-800 dark:border-gray-700';
             eventRow.innerHTML = `
-                <td class="text-base mb-2">${event.Name}</td>
+                <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">${event.Name}</td>
                 <td class="px-6 py-4">${event.Evento_Inicio}</td>
                 <td class="px-6 py-4">${event.Evento_Fin}</td>
                 <td class="px-6 py-4">${event.Director}</td>
-                <td class="">${event.movilidad_id}</td>
+                <td class="px-6 py-4">${event.movilidad_id}</td>
                 <td class="px-6 py-4"><span class="status ${statusClass}">${statusText}</span></td>
                 <td class="px-6 py-4"><a href="/homecartas/${event.id}" class="details">Ver</a></td>
             `;
@@ -127,20 +123,79 @@ document.addEventListener('DOMContentLoaded', function () {
             eventsGrid.appendChild(eventCard);
             eventsTableBody.appendChild(eventRow);
         });
+
+        setupPagination(events);
     }
 
-    tableSearch.addEventListener('input', function () {
-        const searchValue = tableSearch.value.toLowerCase();
-        const filteredEvents = events.filter(event =>
-            event.Name.toLowerCase().includes(searchValue) ||
-            event.Evento_Inicio.toLowerCase().includes(searchValue) ||
-            event.Evento_Fin.toLowerCase().includes(searchValue) ||
-            event.Director.toLowerCase().includes(searchValue) ||
-            event.movilidad_id.toLowerCase().includes(searchValue)
-        );
+    function setupPagination(events) {
+        paginationContainer.innerHTML = '';
+        const rowsPerPage = 10;
+        let currentPage = 1;
+        const pageCount = Math.ceil(events.length / rowsPerPage);
+
+        function displayPage(page) {
+            currentPage = page;
+            const start = (currentPage - 1) * rowsPerPage;
+            const end = start + rowsPerPage;
+            const pageEvents = events.slice(start, end);
+
+            eventsTableBody.innerHTML = '';
+            pageEvents.forEach(event => {
+                const currentDate = new Date().toISOString().split('T')[0];
+                const isActive = new Date(event.Evento_Fin) >= new Date(currentDate);
+                const statusClass = isActive ? 'active' : 'finalized';
+                const statusText = isActive ? 'Activo' : 'Finalizado';
+
+                const eventRow = document.createElement('tr');
+                eventRow.className = 'bg-white border-b dark:bg-gray-800 dark:border-gray-700';
+                eventRow.innerHTML = `
+                    <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">${event.Name}</td>
+                    <td class="px-6 py-4">${event.Evento_Inicio}</td>
+                    <td class="px-6 py-4">${event.Evento_Fin}</td>
+                    <td class="px-6 py-4">${event.Director}</td>
+                    <td class="px-6 py-4">${event.movilidad_id}</td>
+                    <td class="px-6 py-4"><span class="status ${statusClass}">${statusText}</span></td>
+                    <td class="px-6 py-4"><a href="/homecartas/${event.id}" class="details">Ver</a></td>
+                `;
+
+                eventsTableBody.appendChild(eventRow);
+            });
+
+            renderPagination();
+        }
+
+        function renderPagination() {
+            paginationContainer.innerHTML = '';
+            for (let i = 1; i <= pageCount; i++) {
+                const pageLink = document.createElement('span');
+                pageLink.classList.add('page-link');
+                if (i === currentPage) {
+                    pageLink.classList.add('active');
+                }
+                pageLink.textContent = i;
+                pageLink.addEventListener('click', () => {
+                    displayPage(i);
+                });
+                paginationContainer.appendChild(pageLink);
+            }
+        }
+
+        displayPage(currentPage);
+    }
+
+    tableSearch.addEventListener('input', () => {
+        const searchTerm = tableSearch.value.toLowerCase();
+        const filteredEvents = events.filter(event => {
+            return (
+                event.Name.toLowerCase().includes(searchTerm) ||
+                event.Evento_Inicio.toLowerCase().includes(searchTerm) ||
+                event.Evento_Fin.toLowerCase().includes(searchTerm) ||
+                event.Director.toLowerCase().includes(searchTerm) ||
+                event.movilidad_id.toLowerCase().includes(searchTerm)
+            );
+        });
         displayEvents(filteredEvents);
     });
 
-    // Initial fetch and display of events
     fetchEvents();
 });

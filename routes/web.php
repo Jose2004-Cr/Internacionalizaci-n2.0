@@ -44,6 +44,6 @@ Route::middleware([
 
     Route::post('/eventos', [HomeController::class, 'store'])->name('eventos.store');
     Route::get('/calendario/eventos', [CalendarioController::class,'mostrarPorFecha'])->name('calendario.eventos');
-
+    Route::get('/homecartas/{id}', [EventoController::class, 'show'])->name('homecartas');
 
 });
