@@ -1,5 +1,5 @@
 <x-app-layout>
-    @vite (['resources/css/calendario.css',])
+    @vite (['resources/css/calendario.css'])
 
     <link rel="dns-prefetch" href="//unpkg.com" />
     <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
@@ -62,269 +62,122 @@
 
                     <div id="calendar-grid" class="flex flex-wrap border-t border-l calendar-grid"></div>
                 </div>
-                
             </div>
         </div>
 
-        <div id="modal" style="background-color: rgba(0, 0, 0, 0.8)"
-            class="fixed top-0 bottom-0 left-0 right-0 z-40 hidden w-full h-full">
-            <div class="absolute relative left-0 right-0 max-w-xl p-4 mx-auto mt-24 overflow-hidden">
-                <div class="absolute top-0 right-0 inline-flex items-center justify-center w-10 h-10 text-gray-500 bg-white rounded-full shadow cursor-pointer hover:text-gray-800"
-                    id="close-modal">
-                    <svg class="w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path
-                            d="M16.192 6.344L11.949 10.586 7.707 6.344 6.293 7.758 10.535 12 6.293 16.242 7.707 17.656 11.949 13.414 16.192 17.656 17.606 16.242 13.364 12 17.606 7.758z" />
-                    </svg>
-                </div>
 
-                <div class="block w-full p-8 overflow-hidden bg-white rounded-lg shadow">
-
-                    <h2 class="pb-2 mb-6 text-2xl font-bold text-gray-800 border-b">Agregar Nota</h2>
-
-                    <div class="mb-4">
-                        <label class="block mb-1 text-sm font-bold tracking-wide text-gray-800">Título</label>
-                        <input id="event-title"
-                            class="w-full px-4 py-2 leading-tight text-gray-700 bg-gray-200 border-2 border-gray-200 rounded-lg appearance-none focus:outline-none focus:bg-white focus:border-blue-500"
-                            type="text">
-                    </div>
-
-                    <div class="mb-4">
-                        <label class="block mb-1 text-sm font-bold tracking-wide text-gray-800">Fecha del Evento</label>
-                        <input id="event-date"
-                            class="w-full px-4 py-2 leading-tight text-gray-700 bg-gray-200 border-2 border-gray-200 rounded-lg appearance-none focus:outline-none focus:bg-white focus:border-blue-500"
-                            type="text" readonly>
-                    </div>
-
-                    <div class="mb-4">
-                        <label class="block mb-1 text-sm font-bold tracking-wide text-gray-800">Hora</label>
-                        <input id="event-time"
-                            class="w-full px-4 py-2 leading-tight text-gray-700 bg-gray-200 border-2 border-gray-200 rounded-lg appearance-none focus:outline-none focus:bg-white focus:border-blue-500"
-                            type="time">
-                    </div>
-
-                    <div class="mb-4" onload="resetCharacterCount()">
-                        <label class="block mb-1 text-sm font-bold tracking-wide text-gray-800">Nota</label>
-                        <textarea id="event-note" class="w-full px-4 py-2 leading-tight text-gray-700 bg-gray-200 border-2 border-gray-200 rounded-lg appearance-none focus:outline-none focus:bg-white focus:border-blue-500" oninput="updateCharacterCount()"></textarea>
-                        <p id="character-count">200 caracteres restantes</p>
-
-                        <script>
-                            function updateCharacterCount() {
-                                const textarea = document.getElementById('event-note');
-                                const characterCountDisplay = document.getElementById('character-count');
-                                const maxCharacters = 200;
-                                const currentLength = textarea.value.length;
-
-                                if (currentLength > maxCharacters) {
-                                    textarea.value = textarea.value.substring(0, maxCharacters);
-                                }
-
-                                const charactersRemaining = maxCharacters - textarea.value.length;
-                                characterCountDisplay.textContent = charactersRemaining + ' caracteres restantes';
-
-                                if (charactersRemaining < 0) {
-                                    characterCountDisplay.style.color = 'red';
-                                } else {
-                                    characterCountDisplay.style.color = '';
-                                }
-                            }
-
-                            function resetCharacterCount() {
-                                const textarea = document.getElementById('event-note');
-                                const characterCountDisplay = document.getElementById('character-count');
-
-                                textarea.value = '';
-                                characterCountDisplay.textContent = maxCharacters + ' caracteres restantes';
-                                characterCountDisplay.style.color = '';
-                            }
-                        </script>
-
-
-
-
-                    <div class="inline-block w-64 mb-4">
-                        <label class="block mb-1 text-sm font-bold tracking-wide text-gray-800">Selecciona un tema</label>
-                        <div class="relative">
-                            <select id="event-theme"
-                                class="block w-full px-4 py-2 pr-8 leading-tight text-gray-700 bg-gray-200 border-2 border-gray-200 rounded-lg appearance-none hover:border-gray-500 focus:outline-none focus:bg-white focus:border-blue-500">
-                                <option value="blue">Azul</option>
-                                <option value="red">Rojo</option>
-                                <option value="yellow">Amarillo</option>
-                                <option value="green">Verde</option>
-                                <option value="purple">Púrpura</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="mt-8 text-right">
-                        <button type="button"
-                            class="px-4 py-2 mr-2 font-semibold text-gray-700 bg-white border border-gray-300 rounded-lg shadow-sm hover:bg-gray-100"
-                            id="delete-button">
-                            Eliminar Evento
-                        </button>
-
-                        <button type="button"
-                            class="px-4 py-2 font-semibold text-white bg-gray-800 border border-gray-800 rounded-lg shadow-sm hover:bg-gray-700"
-                            id="save-button">
-                            Guardar Evento
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <script>
-            const MONTH_NAMES = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre',
-                'Octubre', 'Noviembre', 'Diciembre'
-            ];
-            const DAYS = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
+            const events = {!! $eventos !!};
 
-            let events = [{
-                hora: new Date(2023, 5, 25),
-                event_title: "Evento en Español",
-                event_theme: 'blue',
-                nota: "Nota del evento"
-            }];
+            let dt = new Date();
+            const renderDate = () => {
+                dt.setDate(1);
+                const today = new Date();
+                const month = dt.getMonth();
+                const monthName = dt.toLocaleString('default', { month: 'long' });
+                const year = dt.getFullYear();
+                const firstDayIndex = dt.getDay();
+                const lastDay = new Date(dt.getFullYear(), dt.getMonth() + 1, 0).getDate();
+                const prevLastDay = new Date(dt.getFullYear(), dt.getMonth(), 0).getDate();
+                const lastDayIndex = new Date(dt.getFullYear(), dt.getMonth() + 1, 0).getDay();
+                const nextDays = 7 - lastDayIndex - 1;
 
-            function init() {
-                const calendarGrid = document.getElementById('calendar-grid');
-                const monthName = document.getElementById('month-name');
-                const year = document.getElementById('year');
+                document.getElementById('month-name').textContent = monthName;
+                document.getElementById('year').textContent = year;
 
-                let today = new Date();
-                let currentMonth = today.getMonth();
-                let currentYear = today.getFullYear();
+                let days = "";
 
-                renderCalendar(currentMonth, currentYear);
-
-                document.getElementById('prev-month').addEventListener('click', function () {
-                    currentMonth = currentMonth === 0 ? 11 : currentMonth - 1;
-                    currentYear = currentMonth === 11 ? currentYear - 1 : currentYear;
-                    renderCalendar(currentMonth, currentYear);
-                });
-
-                document.getElementById('next-month').addEventListener('click', function () {
-                    currentMonth = currentMonth === 11 ? 0 : currentMonth + 1;
-                    currentYear = currentMonth === 0 ? currentYear + 1 : currentYear;
-                    renderCalendar(currentMonth, currentYear);
-                });
-
-                function renderCalendar(month, year) {
-                    calendarGrid.innerHTML = '';
-                    monthName.textContent = MONTH_NAMES[month];
-                    document.getElementById('year').textContent = year;
-
-                    const firstDay = new Date(year, month).getDay();
-                    const daysInMonth = new Date(year, month + 1, 0).getDate();
-
-                    for (let i = 0; i < firstDay; i++) {
-                        const emptyCell = document.createElement('div');
-                        emptyCell.className = 'px-2 py-2 border-t border-r text-center';
-                        emptyCell.style.width = '14.2857%';
-                        calendarGrid.appendChild(emptyCell);
-                    }
-
-                    for (let day = 1; day <= daysInMonth; day++) {
-                        const dateCell = document.createElement('div');
-                        dateCell.className = 'px-2 py-2 border-t border-r border-b text-relative relative cursor-pointer';
-                        dateCell.style.width = '14.2857%';
-                        dateCell.textContent = day;
-
-                        const eventTitleContainer = document.createElement('div');
-                        eventTitleContainer.className = 'text-xs text-gray-600 mt-1';
-                        dateCell.appendChild(eventTitleContainer);
-
-                        const currentDate = new Date(year, month, day);
-                        const event = events.find(e => e.hora.toDateString() === currentDate.toDateString());
-
-                        if (event) {
-                            const eventMarker = document.createElement('div');
-                            eventMarker.className = `flex items-center justify-center h-5 w-5 rounded-sm bg-${event.event_theme}-500 text-white font-bold`;
-                            // eventMarker.textContent = event.event_title;
-                            dateCell.appendChild(eventMarker);
-                        }
-
-                        if (currentDate.toDateString() === new Date().toDateString()) {
-                            dateCell.classList.add('bg-blue-100');
-                        }
-
-                        dateCell.addEventListener('click', function () {
-                            document.getElementById('modal').classList.remove('hidden');
-                            document.getElementById('event-date').value = currentDate.toLocaleDateString('es-ES', {
-                                year: 'numeric',
-                                month: 'long',
-                                day: 'numeric'
-                            });
-
-                            const existingEvent = events.find(e => e.hora.toDateString() === currentDate.toDateString());
-                            if (existingEvent) {
-                                document.getElementById('event-title').value = existingEvent.event_title;
-                                document.getElementById('event-theme').value = existingEvent.event_theme;
-                                document.getElementById('event-note').value = existingEvent.nota;
-                                document.getElementById('delete-button').style.display = 'inline-block';
-                                document.getElementById('save-button').textContent = 'Actualizar Evento';
-                            } else {
-                                document.getElementById('event-title').value = '';
-                                document.getElementById('event-theme').value = 'blue';
-                                document.getElementById('event-note').value = '';
-                                document.getElementById('delete-button').style.display = 'none';
-                                document.getElementById('save-button').textContent = 'Guardar Evento';
-                            }
-
-                            document.getElementById('save-button').onclick = function () {
-                                const eventTitle = document.getElementById('event-title').value;
-                                const eventTheme = document.getElementById('event-theme').value;
-                                const eventNote = document.getElementById('event-note').value;
-                                if (existingEvent) {
-                                    existingEvent.event_title = eventTitle;
-                                    existingEvent.event_theme = eventTheme;
-                                    existingEvent.nota = eventNote;
-                                } else {
-                                    events.push({
-                                        hora: currentDate,
-                                        event_title: eventTitle,
-                                        event_theme: eventTheme,
-                                        nota: eventNote
-                                    });
-                                }
-                                renderCalendar(currentMonth, currentYear);
-                                document.getElementById('modal').classList.add('hidden');
-                            };
-
-                            document.getElementById('delete-button').onclick = function () {
-                                if (existingEvent) {
-                                    events = events.filter(e => e.hora.toDateString() !== currentDate.toDateString());
-                                    renderCalendar(currentMonth, currentYear);
-                                    document.getElementById('modal').classList.add('hidden');
-                                }
-                            };
-
-                            document.getElementById('edit-button').onclick = function () {
-                                if (existingEvent) {
-                                    document.getElementById('event-title').value = existingEvent.event_title;
-                                    document.getElementById('event-theme').value = existingEvent.event_theme;
-                                    document.getElementById('event-note').value = existingEvent.nota;
-                                    document.getElementById('delete-button').style.display = 'inline-block';
-                                    document.getElementById('save-button').textContent = 'Actualizar Evento';
-                                }
-                            };
-                        });
-
-                        calendarGrid.appendChild(dateCell);
-                    }
+                for (let x = firstDayIndex; x > 0; x--) {
+                    days += `<div class="relative w-[14.28%] h-20 px-2 pt-2 border-t border-r">
+                                <div class="absolute w-full text-gray-400 bottom-1 right-1">${prevLastDay - x + 1}</div>
+                            </div>`;
                 }
 
-                document.getElementById('close-modal').addEventListener('click', function () {
-                    document.getElementById('modal').classList.add('hidden');
-                });
+                for (let i = 1; i <= lastDay; i++) {
+                    const isToday = i === today.getDate() && month === today.getMonth() && year === today.getFullYear();
+                    const dayEvents = events.filter(event => {
+                        const eventDate = new Date(event.hora);
+                        return eventDate.getDate() === i && eventDate.getMonth() === month && eventDate.getFullYear() === year;
+                    });
 
-                document.getElementById('cancel-button').addEventListener('click', function () {
-                    document.getElementById('modal').classList.add('hidden');
-                });
-            }
+                    let eventHtml = '';
+                    dayEvents.forEach(event => {
+                        eventHtml += `<div class=" card2 mt-1 overflow-hidden bg-${event.event_theme}-500 rounded-lg shadow-md cursor-pointer event"
+                                        data-title="${event.event_title}"
+                                        data-date="${event.hora}"
+                                        data-note="${event.nota}">
+                                        <p class="text-sm font-bold text-white truncate">${event.event_title}</p>
+                                        <p class="text-xs text-white truncate ">${event.nota}</p>
+                                    </div>`;
+                    });
 
-            document.addEventListener('DOMContentLoaded', init);
+
+
+                    document.addEventListener('DOMContentLoaded', function() {
+                        // Selecciona todas las cartas con la clase 'event'
+                        const eventCards = document.querySelectorAll('.event');
+
+                        // Añade un evento de clic a cada carta
+                        eventCards.forEach(card => {
+                            card.addEventListener('click', function() {
+                                // Obtén los datos de la carta
+                                const title = this.getAttribute('data-title');
+                                const date = this.getAttribute('data-date');
+                                const note = this.getAttribute('data-note');
+
+                                // Construye la URL para redirigir
+                                const url = `/tu-vista.blade.php?title=${encodeURIComponent(title)}&date=${encodeURIComponent(date)}&note=${encodeURIComponent(note)}`;
+
+                                // Redirige a la nueva URL
+                                window.location.href = url;
+                            });
+                        });
+                    });
+
+
+                    days += `<div class="relative w-[14.28%] h-20 px-2 pt-2 border-t border-r">
+                                <div class="absolute bottom-1 right-1 w-full ${isToday ? 'text-blue-500' : 'text-gray-500'}">${i}</div>
+                                ${eventHtml}
+                            </div>`;
+                }
+
+                for (let j = 1; j <= nextDays; j++) {
+                    days += `<div class="relative w-[14.28%] h-20 px-2 pt-2 border-t border-r">
+                                <div class="absolute w-full text-gray-400 bottom-1 right-1">${j}</div>
+                            </div>`;
+                }
+
+                document.getElementById('calendar-grid').innerHTML = days;
+
+                document.querySelectorAll('.event').forEach(event => {
+                    event.addEventListener('click', () => {
+                        const title = event.getAttribute('data-title');
+                        const date = event.getAttribute('data-date');
+                        const note = event.getAttribute('data-note');
+
+                        document.getElementById('event-title').value = title;
+                        document.getElementById('event-date').value = date;
+                        document.getElementById('event-note').value = note;
+
+                        document.getElementById('modal').style.display = 'block';
+                    });
+                });
+            };
+
+            document.getElementById('prev-month').addEventListener('click', () => {
+                dt.setMonth(dt.getMonth() - 1);
+                renderDate();
+            });
+
+            document.getElementById('next-month').addEventListener('click', () => {
+                dt.setMonth(dt.getMonth() + 1);
+                renderDate();
+            });
+
+
+
+            renderDate();
         </script>
     </body>
-
-
 </x-app-layout>

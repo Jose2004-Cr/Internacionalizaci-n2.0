@@ -3,62 +3,31 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Evento;
 
 class CalendarioController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+
+
+{   public function index()
     {
-        return view('calendario');
+        $eventos = Evento::all(); // Obtiene todos los eventos de la base de datos
+        $eventos = $eventos->map(function ($evento) {
+            return [
+                'hora' => $evento->Evento_Inicio,
+                'event_title' => $evento->Name,
+                'event_theme' => 'blue', // Puedes ajustar esto según tus necesidades
+                'nota' => $evento->Director,
+            ];
+        });
+
+        return view('calendario', ['eventos' => json_encode($eventos)]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function mostrarPorFecha(Request $request)
     {
-        //
-    }
+        $fecha = $request->input('fecha');
+        $eventos = Evento::whereDate('Evento_Inicio', $fecha)->get();
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        return response()->json($eventos);
     }
 }
