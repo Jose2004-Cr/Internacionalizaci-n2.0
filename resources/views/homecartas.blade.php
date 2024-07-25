@@ -1,18 +1,44 @@
 <x-app-layout>
-    <div class="container px-4 mx-auto">
-        <div class="flex flex-col items-center justify-between mb-6 sm:flex-row">
-            <h1 class="text-3xl font-bold text-gray-800">Detalle del Evento</h1>
+    @vite(['resources/css/homecartas.css'])
+    <div class="container">
+        <div class="header">
+            <h1>Datos Del Evento</h1>
         </div>
 
         <section>
             <main>
-                <div class="p-4 rounded shadow-md">
-                    <h2 class="mb-2 text-xl font-bold text-gray-800">{{ $evento->Name }}</h2>
-                    <p class="text-gray-600"><strong>Director:</strong> {{ $evento->Director }}</p>
-                    <p class="text-gray-600"><strong>Fecha de Inicio:</strong> {{ $evento->Evento_Inicio }}</p>
-                    <p class="text-gray-600"><strong>Fecha de Fin:</strong> {{ $evento->Evento_Fin }}</p>
-                    <p class="text-gray-600"><strong>Actividad:</strong> {{ $evento->Actividad->nombre }}</p>
-                    <p class="text-gray-600"><strong>Movilidad:</strong> {{ $evento->Movilidad->nombre }}</p>
+                <div class="card">
+                    <div class="card-item">
+                        <label>Nombre del evento</label>
+                        <p>{{ $evento->Name }}</p>
+                    </div>
+                    <div class="card-item">
+                        <label>Nombre del responsable</label>
+                        <p>{{ $evento->Director }}</p>
+                    </div>
+                    <div class="card-item">
+                        <label>Tipo de actividad</label>
+                        <p>{{ $evento->Actividad->nombre }}</p>
+                    </div>
+                    <div class="card-item">
+                        <label>Tipo de Movilidad</label>
+                        <p>{{ $evento->Movilidad->nombre }}</p>
+                    </div>
+                    <div class="card-item">
+                        <label>Fecha de vencimiento</label>
+                        <p class="event-date">{{ $evento->Evento_Fin }}</p>
+                    </div>
+                    <div class="card-item">
+                        <label>Participantes</label>
+                        <p>Colocar los participantes</p>
+                    </div>
+                    <div class="card-item">
+                        <label>Personas asistidas</label>
+                        <button>{{ $evento->Movilidad->nombre }}</button>
+                    </div>
+                    <div class="card-item">
+                        <button class="edit-button">Editar</button>
+                    </div>
                 </div>
             </main>
         </section>

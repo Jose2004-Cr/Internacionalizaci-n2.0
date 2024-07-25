@@ -1,0 +1,78 @@
+/* Custom styles */
+body {
+    background-color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: absolute;
+}
+
+.header h1 {
+    position: center;
+    margin-bottom: 10px;
+    font-size: 1.8em;
+    color: #0a2238;
+}
+
+.card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.card-item {
+    background: linear-gradient(90deg, #eaeaea);
+    border-radius: 40px;
+    color: rgb(0, 0, 0);
+    padding: 15px;
+    text-align: left;
+}
+
+
+
+.card-item label {
+    font-size: 1em;
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.card-item p {
+    font-size: 1em;
+    margin: 0;
+}
+
+.card-item .event-date {
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+.card-item button {
+    background-color: #0c3c8a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.card-item button:hover {
+    background-color: #061233;
+}
+
+.edit-button {
+    grid-column: span 2;
+    background-color: #1E40AF;
+}
+
+.edit-button:hover {
+    background-color: #1a365d;
+}
